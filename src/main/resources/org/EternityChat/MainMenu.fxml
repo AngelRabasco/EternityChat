@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1237.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ProyectoCiclo1.maven.ProyectoCiclo1.MainMenuController">
+   <children>
+      <Separator layoutX="276.0" orientation="VERTICAL" prefHeight="526.0" prefWidth="3.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Label layoutX="76.0" layoutY="7.0" text="Usuarios en la sala">
+         <font>
+            <Font name="Consolas" size="12.0" />
+         </font></Label>
+      <ListView layoutY="29.0" prefHeight="692.0" prefWidth="277.0" />
+      <TextField layoutX="279.0" layoutY="668.0" prefHeight="52.0" prefWidth="904.0" promptText="Send message..." />
+      <ImageView fitHeight="71.0" fitWidth="41.0" layoutX="1190.0" layoutY="673.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagenes/paper-planes-3128885_960_720.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
