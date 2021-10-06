@@ -11,23 +11,25 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import org.EternityChat.Model.ChatRooms;
+import org.EternityChat.Model.ChatRoomsList;
 
 public class JAXBManager {
-	public static void marshal(ChatRooms r) throws JAXBException {
-		marshal(r, "ejemplo.xml");
+	public static void marshal(ChatRoomsList crl) throws JAXBException {
+		marshal(crl, "ejemplo.xml");
 	}
 
-	public static void marshal(ChatRooms r, String f) throws JAXBException {
-		marshal(r, new File(f));
+	public static void marshal(ChatRoomsList crl, String f) throws JAXBException {
+		marshal(crl, new File(f));
 	}
 
-	public static void marshal(ChatRooms r, File f) throws JAXBException {
+	public static void marshal(ChatRoomsList crl, File f) throws JAXBException {
 		try (BufferedWriter writer = new BufferedWriter(new FileWriter(f))) {
 			JAXBContext context = JAXBContext.newInstance(ChatRooms.class);
+			System.out.println("fufo");
 			Marshaller m = context.createMarshaller();
 			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 			m.setProperty(Marshaller.JAXB_ENCODING, "utf-8");
-			m.marshal(r, writer);
+			m.marshal(crl, writer);
 			// writer.close();
 		} catch (IOException e) {
 			e.printStackTrace();
