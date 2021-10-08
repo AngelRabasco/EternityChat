@@ -7,6 +7,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
 
+import org.EternityChat.Util.JAXBManager;
+
 /**
  * JavaFX App
  */
@@ -32,6 +34,7 @@ public class App extends Application {
 	}
 	
 	public static void main(String[] args) {
+		JAXBManager.saveFile("C:\\Users\\santa\\Desktop\\EternityChat\\src\\main\\java\\org\\EternityChat\\Util\\holu.xml");
 		launch();
 	}
 }
