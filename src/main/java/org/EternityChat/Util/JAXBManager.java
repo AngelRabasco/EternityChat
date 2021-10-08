@@ -15,6 +15,7 @@ import javax.xml.bind.Marshaller;
 import org.EternityChat.Model.ChatRooms;
 import org.EternityChat.Model.ChatRoomsList;
 import org.EternityChat.Model.Message;
+import org.EternityChat.Model.Users.User;
 
 public class JAXBManager {
 	
@@ -41,9 +42,12 @@ public class JAXBManager {
 		Message m2 = new Message(2, "uwu");
 		ml.add(m1);
 		ml.add(m2);
+		User u = new User(1,"pakonii",ml);
+		List<User> us = new ArrayList<>();
+		us.add(u);
 		//solo para pruebas
-		ChatRooms c1 = new ChatRooms(1,"furbo",ml);
-		ChatRooms c2 = new ChatRooms(2,"masfurbito",ml);
+		ChatRooms c1 = new ChatRooms(1,"furbo",us);
+
 		
 	
 		
