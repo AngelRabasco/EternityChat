@@ -4,10 +4,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlAttribute;
+
 import org.EternityChat.Model.Message;
 
 public class User implements Serializable{
-	private Integer id;
+	
+	private int id;
 	private String nickname;
 	private List<Message> ml = new ArrayList<>();
 
@@ -16,13 +19,13 @@ public class User implements Serializable{
 		this(-1, "");
 	}
 
-	public User(Integer id, String nickname) {
+	public User(int id, String nickname) {
 		// Genera un User
 		this.id = id;
 		this.nickname = nickname;
 	}
 
-	public User(Integer id, String nickname, List<Message> ml) {
+	public User(int id, String nickname, List<Message> ml) {
 		super();
 		this.id = id;
 		this.nickname = nickname;
