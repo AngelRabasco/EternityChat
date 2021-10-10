@@ -1,14 +1,14 @@
 package org.EternityChat;
 
-import java.io.IOException;
-
-import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
+import org.EternityChat.Model.User;
+import javafx.scene.control.Button;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import java.io.IOException;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.fxml.FXML;
 
 public class LoginController {
 	@FXML
@@ -25,6 +25,8 @@ public class LoginController {
 			FXMLLoader loader=new FXMLLoader(getClass().getResource("ChatRoomSelector.fxml"));
 			Parent parent=loader.load();
 			ChatRoomSelectorController chatroomSelectorController=loader.getController();
+			chatroomSelectorController.loadUser(new User(userField.getText()));
+			chatroomSelectorController.loadChatRooms();
 			Stage stage=new Stage();
 			stage.setScene(new Scene(parent));
 			stage.setTitle("Seleccione un chat");

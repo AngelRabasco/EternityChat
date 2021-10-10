@@ -16,10 +16,14 @@ public class User implements Serializable{
 		// Genera un User por defecto
 		this(-1, "");
 	}
-	public User(int id, String nickname) {
+	public User(Integer id, String nickname) {
 		// Genera un User
 		this.id = id;
 		this.nickname = nickname;
+	}
+	public User(String nickname) {
+		// Genera un User solo con nickname
+		this.nickname=nickname;
 	}
 	
 	public Integer getId() {
