@@ -10,10 +10,13 @@ import org.EternityChat.Model.Message;
 
 public class User implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int id;
 	private String nickname;
 	private List<Message> ml = new ArrayList<>();
-
 	public User() {
 		// Genera un User por defecto
 		this(-1, "");
@@ -30,6 +33,16 @@ public class User implements Serializable{
 		this.id = id;
 		this.nickname = nickname;
 		this.ml = ml;
+	}
+	
+
+
+	
+
+
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public List<Message> getMl() {

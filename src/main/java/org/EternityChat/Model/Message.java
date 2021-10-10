@@ -1,19 +1,61 @@
 package org.EternityChat.Model;
 
+import java.util.Date;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
 
 import javax.xml.bind.annotation.XmlAttribute;
 
+
+import org.EternityChat.Model.Users.User;
+
 public class Message implements Serializable {
-	
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int id;
 	private String text;
-	
+	private User u = new User();
+	private Calendar calendario = Calendar.getInstance();
+	String hora, minutos, segundos;
+
 	public Message(int id, String text) {
 		super();
-		
 		this.id = id;
 		this.text = text;
+	}
+
+	public Message(int id, String text, User u) {
+		super();
+		this.id = id;
+		this.text = text;
+		this.u = u;
+		this.hora = String.valueOf(calendario.get(Calendar.HOUR_OF_DAY) + ":" + calendario.get(Calendar.MINUTE));
+
+	}
+
+	public String getHora() {
+		return String.valueOf(hora);
+	}
+
+	public void setHora(String hora) {
+		this.hora = hora;
+	}
+
+	public User getU() {
+		return u;
+	}
+
+	public void setU(User u) {
+		this.u = u;
+	}
+
+	public Message() {
+		super();
 	}
 
 	public int getId() {

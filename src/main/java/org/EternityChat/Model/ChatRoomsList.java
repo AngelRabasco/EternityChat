@@ -14,21 +14,22 @@ public class ChatRoomsList implements Serializable {
 	/**
 	 * 
 	 */
+	
 	private static final long serialVersionUID = 1L;
-	@XmlElement(name="ChatRooms", type=ChatRooms.class)
-	private List<ChatRooms> crl = new ArrayList<>();
+	@XmlElement(name="ChatRooms", type=ChatRoom.class)
+	private List<ChatRoom> crl = new ArrayList<>();
 	
 	public ChatRoomsList(){}
 
-	public List<ChatRooms> getCrl() {
+	public List<ChatRoom> getCrl() {
 		return crl;
 	}
 
-	public void setCrl(List<ChatRooms> crl) {
+	public void setCrl(List<ChatRoom> crl) {
 		this.crl = crl;
 	}
 	
-	public void addChatRooms(ChatRooms cr) {
+	public void addChatRooms(ChatRoom cr) {
 		this.crl.add(cr);
 	}
 

@@ -12,69 +12,74 @@ import java.util.List;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
-import org.EternityChat.Model.ChatRooms;
+
+import org.EternityChat.WhatHour;
+import org.EternityChat.Model.ChatRoom;
 import org.EternityChat.Model.ChatRoomsList;
 import org.EternityChat.Model.Message;
 import org.EternityChat.Model.Users.User;
 
 public class JAXBManager {
-	
 
-	/*public static void marshal(String url) throws JAXBException, IOException {
-		ChatRooms r1=new ChatRooms(1,"furbo");
-		ChatRooms r2=new ChatRooms(1,"masfurbo");
-		
-		JAXBContext context;
-		
-		context = JAXBContext.newInstance(ChatRoomsList.class);
-		System.out.println("fufo");
-		Marshaller m = context.createMarshaller();
-		m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-		m.setProperty(Marshaller.JAXB_ENCODING, "utf-8");
-		m.marshal(r1, new File(url));
-		
+	/*
+	 * public static void marshal(String url) throws JAXBException, IOException {
+	 * ChatRooms r1=new ChatRooms(1,"furbo"); ChatRooms r2=new
+	 * ChatRooms(1,"masfurbo");
+	 * 
+	 * JAXBContext context;
+	 * 
+	 * context = JAXBContext.newInstance(ChatRoomsList.class);
+	 * System.out.println("fufo"); Marshaller m = context.createMarshaller();
+	 * m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+	 * m.setProperty(Marshaller.JAXB_ENCODING, "utf-8"); m.marshal(r1, new
+	 * File(url));
+	 * 
+	 * 
+	 * }
+	 */
 
-	}*/
-	
 	public static void saveFile(String url) {
-		List<Message> ml = new ArrayList<>();
-		Message m1 = new Message(1, "holu");
-		Message m2 = new Message(2, "uwu");
-		ml.add(m1);
-		ml.add(m2);
-		User u = new User(1,"pakonii",ml);
-		List<User> us = new ArrayList<>();
-		us.add(u);
-		//solo para pruebas
-		ChatRooms c1 = new ChatRooms(1,"furbo",us);
+		ChatRoomsList cl = new ChatRoomsList();
 
-		
-	
-		
+		List<Message> ml = new ArrayList<>();
+		int hora, minutos;
+
+		User u = new User(1, "pakonii");
+		User u2 = new User(2, "Angel");
+		Message m1 = new Message(1, "holu",u2);
+		List<User> us = new ArrayList<>();
+		ml.add(m1);
+		Message m2 = new Message(2, "uwu", u);
+		ml.add(m2);
+		us.add(u);
+		us.add(u2);
+		// solo para pruebas
+		ChatRoom c1 = new ChatRoom(1, "furbo", ml);
+		cl.addChatRooms(c1);
 		System.out.println(c1);
-		
-		//marshaling
+
+		// marshaling
 		JAXBContext jaxbContext;
 		try {
-			//jaxbContext = JAXBContext.newInstance(room.class);
-			jaxbContext = JAXBContext.newInstance(ChatRooms.class);
-		    Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
-			 
-		    jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-		     
-		    //Marshal the list in console
-		    //jaxbMarshaller.marshal(_instance, System.out);
-		     
-		    //Marshal the employees list in file
-		    jaxbMarshaller.marshal(c1, new File(url));
-		    
+			// jaxbContext = JAXBContext.newInstance(room.class);
+			jaxbContext = JAXBContext.newInstance(ChatRoomsList.class);
+			Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+
+			jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
+			// Marshal the list in console
+			// jaxbMarshaller.marshal(_instance, System.out);
+
+			// Marshal the employees list in file
+			jaxbMarshaller.marshal(cl, new File(url));
+
 		} catch (JAXBException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}	
+		}
 	}
 
-	public static ChatRooms unmarshal(File f) {
+	public static ChatRoom unmarshal(File f) {
 		return null;
 	}
 

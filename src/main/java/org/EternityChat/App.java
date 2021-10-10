@@ -34,7 +34,7 @@ public class App extends Application {
 	}
 	
 	public static void main(String[] args) {
-		JAXBManager.saveFile("C:\\Users\\santa\\Desktop\\EternityChat\\src\\main\\java\\org\\EternityChat\\Util\\holu.xml");
+		JAXBManager.saveFile("C:\\Users\\usuario\\git\\EternityChat\\src\\main\\java\\data\\holu.xml");
 		launch();
 	}
 }

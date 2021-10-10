@@ -14,8 +14,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.EternityChat.Model.Users.User;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "ChatRooms")
-public class ChatRooms implements Serializable {
+@XmlRootElement(name = "ChatRoom")
+public class ChatRoom implements Serializable {
 	/**
 	 * 
 	 */
@@ -23,34 +23,37 @@ public class ChatRooms implements Serializable {
 	@XmlAttribute(name="id")
 	private int id;
 	private String name;
-
-	private List<User> usr = new ArrayList<>();
-
-	public ChatRooms() {
+	private List<Message> ml = new ArrayList<>();
+	public ChatRoom() {
 
 	}
 
-	public ChatRooms(int id, String name) {
+	public ChatRoom(int id, String name) {
 		super();
 		this.id = id;
 		this.name = name;
 
 	}
 
-	public ChatRooms(int id, String name, List<User> usr) {
+
+	
+	public ChatRoom(int id, String name,List<Message> ml) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.usr = usr;
+		this.ml = ml;
 	}
 
-	public List<User> getUsr() {
-		return usr;
+	
+	public List<Message> getMl() {
+		return ml;
 	}
 
-	public void setUsr(List<User> usr) {
-		this.usr = usr;
+	public void setMl(List<Message> ml) {
+		this.ml = ml;
 	}
+
+
 
 	public int getId() {
 		return id;
