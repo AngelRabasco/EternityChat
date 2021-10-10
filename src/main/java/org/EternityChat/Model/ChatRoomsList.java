@@ -16,7 +16,7 @@ public class ChatRoomsList implements Serializable {
 	 */
 	
 	private static final long serialVersionUID = 1L;
-	@XmlElement(name="ChatRooms", type=ChatRoom.class)
+	@XmlElement(name="ChatRoom", type=ChatRoom.class)
 	private List<ChatRoom> crl = new ArrayList<>();
 	
 	public ChatRoomsList(){}

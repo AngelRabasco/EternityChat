@@ -13,7 +13,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "ChatRoomList")
-
 public class ChatRoom implements Serializable {
 	/**
 	 * 
@@ -26,8 +25,7 @@ public class ChatRoom implements Serializable {
 	private List<Message> ml = new ArrayList<>();
 	@XmlElement(name = "ConnectedUsers")
 	private List<User> ul = new ArrayList<>();
-	@XmlElement(name="ChatRooms", type=ChatRoom.class)
-	private List<ChatRoom> crl = new ArrayList<>();
+	
 
 	public ChatRoom(int id, String name, List<Message> ml, List<User> ul, List<ChatRoom> crl) {
 		super();
@@ -64,13 +62,7 @@ public class ChatRoom implements Serializable {
 		this.ul = ul;
 	}
 
-	public List<ChatRoom> getCrl() {
-		return crl;
-	}
-
-	public void setCrl(List<ChatRoom> crl) {
-		this.crl = crl;
-	}
+	
 
 	public List<User> getUl() {
 		return ul;
@@ -103,13 +95,15 @@ public class ChatRoom implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-
 
 	@Override
 	public String toString() {
-		return "ChatRoom [id=" + id + ", name=" + name + ", ml=" + ml + ", ul=" + ul + ", crl=" + crl+"";
+		return "ChatRoom [id=" + id + ", name=" + name + ", ml=" + ml + ", ul=" + ul + "]";
 	}
+	
+
+
+	
 
 	
 
