@@ -8,6 +8,5 @@ module org.EternityChat {
     opens org.EternityChat to javafx.fxml, java.xml.bind, javafx.base;
     opens org.EternityChat.Model to javafx.xml, java.xml.bind;
     opens org.EternityChat.Util to com.sun.xml.bind;
-    opens org.EternityChat.Model.Users to javafx.xml, java.xml.bind, com.sun.xml.bind;
     exports org.EternityChat;
 }

@@ -43,18 +43,20 @@ public class JAXBManager {
 
 		List<Message> ml = new ArrayList<>();
 		int hora, minutos;
-
+		List<User> ul = new ArrayList<>();
+		
 		User u = new User(1, "pakonii");
 		User u2 = new User(2, "Angel");
+		
 		Message m1 = new Message(1, "holu",u2);
-		List<User> us = new ArrayList<>();
+	
 		ml.add(m1);
 		Message m2 = new Message(2, "uwu", u);
 		ml.add(m2);
-		us.add(u);
-		us.add(u2);
+		ul.add(u);
+		ul.add(u2);
 		// solo para pruebas
-		ChatRoom c1 = new ChatRoom(1, "furbo", ml);
+		ChatRoom c1 = new ChatRoom(1, "furbo", ml,ul);
 		cl.addChatRooms(c1);
 		System.out.println(c1);
 

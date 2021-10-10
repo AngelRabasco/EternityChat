@@ -21,7 +21,10 @@ public class ChatRoom implements Serializable {
 	@XmlAttribute(name="id")
 	private int id;
 	private String name;
+	@XmlElement (name="mensaje")
 	private List<Message> ml = new ArrayList<>();
+	@XmlElement (name="ConnectedUsers")
+	private List<User> ul = new ArrayList<>();
 	public ChatRoom() {
 
 	}
@@ -41,8 +44,27 @@ public class ChatRoom implements Serializable {
 		this.name = name;
 		this.ml = ml;
 	}
-
 	
+	
+	
+	public ChatRoom(int id, String name, List<Message> ml, List<User> ul) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.ml = ml;
+		this.ul = ul;
+	}
+	
+	
+
+	public List<User> getUl() {
+		return ul;
+	}
+
+	public void setUl(List<User> ul) {
+		this.ul = ul;
+	}
+
 	public List<Message> getMl() {
 		return ml;
 	}
@@ -50,6 +72,7 @@ public class ChatRoom implements Serializable {
 	public void setMl(List<Message> ml) {
 		this.ml = ml;
 	}
+	
 
 
 
@@ -69,10 +92,11 @@ public class ChatRoom implements Serializable {
 		this.name = name;
 	}
 
-
 	@Override
 	public String toString() {
-		return "ChatRooms [id=" + id + ", name=" + name + "]";
+		return "ChatRoom [id=" + id + ", name=" + name + ", ml=" + ml + ", ul=" + ul + "]";
 	}
 
+
+	
 }
