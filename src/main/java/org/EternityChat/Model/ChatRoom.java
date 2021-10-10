@@ -12,19 +12,32 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "ChatRoom")
+@XmlRootElement(name = "ChatRoomList")
+
 public class ChatRoom implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	@XmlAttribute(name="id")
+	@XmlAttribute(name = "id")
 	private int id;
 	private String name;
-	@XmlElement (name="mensaje")
+	@XmlElement(name = "mensaje")
 	private List<Message> ml = new ArrayList<>();
-	@XmlElement (name="ConnectedUsers")
+	@XmlElement(name = "ConnectedUsers")
 	private List<User> ul = new ArrayList<>();
+	@XmlElement(name="ChatRooms", type=ChatRoom.class)
+	private List<ChatRoom> crl = new ArrayList<>();
+
+	public ChatRoom(int id, String name, List<Message> ml, List<User> ul, List<ChatRoom> crl) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.ml = ml;
+		this.ul = ul;
+		
+	}
+
 	public ChatRoom() {
 
 	}
@@ -36,17 +49,13 @@ public class ChatRoom implements Serializable {
 
 	}
 
-
-	
-	public ChatRoom(int id, String name,List<Message> ml) {
+	public ChatRoom(int id, String name, List<Message> ml) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.ml = ml;
 	}
-	
-	
-	
+
 	public ChatRoom(int id, String name, List<Message> ml, List<User> ul) {
 		super();
 		this.id = id;
@@ -54,8 +63,14 @@ public class ChatRoom implements Serializable {
 		this.ml = ml;
 		this.ul = ul;
 	}
-	
-	
+
+	public List<ChatRoom> getCrl() {
+		return crl;
+	}
+
+	public void setCrl(List<ChatRoom> crl) {
+		this.crl = crl;
+	}
 
 	public List<User> getUl() {
 		return ul;
@@ -72,9 +87,6 @@ public class ChatRoom implements Serializable {
 	public void setMl(List<Message> ml) {
 		this.ml = ml;
 	}
-	
-
-
 
 	public int getId() {
 		return id;
@@ -91,12 +103,14 @@ public class ChatRoom implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+
 
 	@Override
 	public String toString() {
-		return "ChatRoom [id=" + id + ", name=" + name + ", ml=" + ml + ", ul=" + ul + "]";
+		return "ChatRoom [id=" + id + ", name=" + name + ", ml=" + ml + ", ul=" + ul + ", crl=" + crl+"";
 	}
 
-
 	
+
 }

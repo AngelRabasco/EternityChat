@@ -39,4 +39,10 @@ public class User implements Serializable{
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
 	}
+	
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", nickname=" + nickname + "]";
+	}
+	
 }

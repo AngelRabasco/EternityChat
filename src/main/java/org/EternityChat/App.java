@@ -5,8 +5,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import java.io.IOException;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
+
+import org.EternityChat.Model.ChatRoom;
+import org.EternityChat.Model.ChatRoomsList;
 import org.EternityChat.Util.JAXBManager;
 
 /**
@@ -37,8 +46,11 @@ public class App extends Application {
     System.out.println("Stage is closing");
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws JAXBException, FileNotFoundException {
 		JAXBManager.saveFile("C:\\Users\\usuario\\git\\EternityChat\\src\\main\\java\\data\\holu.xml");
 		launch();
+		ChatRoomsList crl = new ChatRoomsList();
+		crl = (ChatRoomsList) JAXBManager.loadFile("C:\\Users\\usuario\\git\\EternityChat\\src\\main\\java\\data\\holu.xml");
+		System.out.println(crl);
 	}
 }

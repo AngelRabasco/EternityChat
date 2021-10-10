@@ -2,18 +2,22 @@ package org.EternityChat.Util;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.bind.JAXB;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
 
-import org.EternityChat.WhatHour;
+
 import org.EternityChat.Model.ChatRoom;
 import org.EternityChat.Model.ChatRoomsList;
 import org.EternityChat.Model.Message;
@@ -44,21 +48,22 @@ public class JAXBManager {
 		List<Message> ml = new ArrayList<>();
 		int hora, minutos;
 		List<User> ul = new ArrayList<>();
-		
+
 		User u = new User(1, "pakonii");
 		User u2 = new User(2, "Angel");
-		
-		Message m1 = new Message(1, "holu",u2);
-	
+
+		Message m1 = new Message(1, "holu", u2);
+
 		ml.add(m1);
 		Message m2 = new Message(2, "uwu", u);
 		ml.add(m2);
 		ul.add(u);
 		ul.add(u2);
 		// solo para pruebas
-		ChatRoom c1 = new ChatRoom(1, "furbo", ml,ul);
+		ChatRoom c1 = new ChatRoom(1, "furbo", ml, ul);
 		cl.addChatRooms(c1);
 		System.out.println(c1);
+		
 
 		// marshaling
 		JAXBContext jaxbContext;
@@ -81,8 +86,30 @@ public class JAXBManager {
 		}
 	}
 
-	public static ChatRoom unmarshal(File f) {
+	public static ChatRoomsList loadFile(String url) throws JAXBException, FileNotFoundException {
+		JAXBContext jaxbContext;
+		try {
+			// jaxbContext = JAXBContext.newInstance(room.class);
+			jaxbContext = JAXBContext.newInstance(ChatRoomsList.class);
+			Unmarshaller jaxUnmarshaller = jaxbContext.createUnmarshaller();
+
+			ChatRoomsList cr = new ChatRoomsList();
+
+			// Marshal the list in console
+			// jaxbMarshaller.marshal(_instance, System.out);
+
+			// Marshal the employees list in file
+			
+			cr = (ChatRoomsList) jaxUnmarshaller.unmarshal(new File(url));
+			return cr;
+		} catch (JAXBException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return null;
 	}
+		
+	   }
+	
 
-}
+
