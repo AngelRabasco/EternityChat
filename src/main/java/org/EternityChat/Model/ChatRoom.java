@@ -11,8 +11,6 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import org.EternityChat.Model.Users.User;
-
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "ChatRoom")
 public class ChatRoom implements Serializable {

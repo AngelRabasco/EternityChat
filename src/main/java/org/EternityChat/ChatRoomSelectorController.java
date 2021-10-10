@@ -1,6 +1,7 @@
 package org.EternityChat;
 
-import org.EternityChat.Model.Users.User;
+import org.EternityChat.Model.User;
+
 import javafx.fxml.FXML;
 
 public class ChatRoomSelectorController {

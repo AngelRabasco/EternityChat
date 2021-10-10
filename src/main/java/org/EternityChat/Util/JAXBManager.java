@@ -17,7 +17,7 @@ import org.EternityChat.WhatHour;
 import org.EternityChat.Model.ChatRoom;
 import org.EternityChat.Model.ChatRoomsList;
 import org.EternityChat.Model.Message;
-import org.EternityChat.Model.Users.User;
+import org.EternityChat.Model.User;
 
 public class JAXBManager {
 

@@ -8,9 +8,6 @@ import java.util.List;
 
 import javax.xml.bind.annotation.XmlAttribute;
 
-
-import org.EternityChat.Model.Users.User;
-
 public class Message implements Serializable {
 
 	/**
