@@ -35,14 +35,16 @@ public class Message implements Serializable {
 		this.id = id;
 		this.text = text;
 	}
-
 	public Message(int id, String text, User ur) {
 		super();
 		this.id = id;
 		this.text = text;
 		this.ur = ur;
 		this.hora = String.valueOf(calendario.get(Calendar.HOUR_OF_DAY) + ":" + calendario.get(Calendar.MINUTE));
-
+	}
+	public Message(String text, User user) {
+		this.text=text;
+		this.ur=user;
 	}
 
 	public String getHora() {
@@ -53,11 +55,11 @@ public class Message implements Serializable {
 		this.hora = hora;
 	}
 
-	public User getU() {
+	public User getUr() {
 		return ur;
 	}
 
-	public void setU(User ur) {
+	public void setUr(User ur) {
 		this.ur = ur;
 	}
 

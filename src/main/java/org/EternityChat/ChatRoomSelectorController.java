@@ -63,7 +63,7 @@ public class ChatRoomSelectorController {
 			stage.setResizable(false);
 			Stage currentStage=(Stage) chatList.getScene().getWindow();
 			currentStage.close();
-			
+			stage.setOnCloseRequest(e -> mainMenuController.shutdown());
 			stage.show();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

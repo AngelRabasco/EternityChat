@@ -42,10 +42,6 @@ public class App extends Application {
 		return fxmlLoader.load();
 	}
 	
-	public void stop(){
-    System.out.println("Stage is closing");
-	}
-	
 	public static void main(String[] args) throws JAXBException, FileNotFoundException {
 		JAXBManager.saveFile("C:\\Users\\usuario\\git\\EternityChat\\src\\main\\java\\data\\holu.xml");
 		launch();
