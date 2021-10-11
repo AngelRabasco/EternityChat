@@ -13,10 +13,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "ChatRoomList")
+
 public class ChatRoom implements Serializable {
 	/**
 	 * 
 	 */
+	
+	//hacer 2 listas
 	private static final long serialVersionUID = 1L;
 	@XmlAttribute(name = "id")
 	private int id;
@@ -25,6 +28,7 @@ public class ChatRoom implements Serializable {
 	private List<Message> ml = new ArrayList<>();
 	@XmlElement(name = "ConnectedUsers")
 	private List<User> ul = new ArrayList<>();
+
 	
 
 	public ChatRoom(int id, String name, List<Message> ml, List<User> ul, List<ChatRoom> crl) {
@@ -98,7 +102,7 @@ public class ChatRoom implements Serializable {
 
 	@Override
 	public String toString() {
-		return "ChatRoom [id=" + id + ", name=" + name + ", ml=" + ml + ", ul=" + ul + "]";
+		return "ChatRoomList [id=" + id + ", name=" + name + ", ml=" + ml + ", ul=" + ul + "]";
 	}
 	
 

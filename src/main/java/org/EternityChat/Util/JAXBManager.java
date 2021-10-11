@@ -62,9 +62,10 @@ public class JAXBManager {
 		// solo para pruebas
 		ChatRoom c1 = new ChatRoom(1, "furbo", ml, ul);
 		cl.addChatRooms(c1);
-		System.out.println(c1);
 		
-
+		ChatRoom c2 = new ChatRoom(2,"chill",ml,ul);
+		cl.addChatRooms(c2);
+		System.out.println(cl);
 		// marshaling
 		JAXBContext jaxbContext;
 		try {

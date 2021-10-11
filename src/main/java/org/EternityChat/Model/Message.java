@@ -7,7 +7,9 @@ import java.util.Calendar;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlAttribute;
-
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+@XmlRootElement(name="usuario")
 public class Message implements Serializable {
 
 	/**
@@ -16,7 +18,7 @@ public class Message implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private int id;
 	private String text;
-	private User u = new User();
+	private User ur = new User();
 	private Calendar calendario = Calendar.getInstance();
 	String hora, minutos, segundos;
 
@@ -26,11 +28,11 @@ public class Message implements Serializable {
 		this.text = text;
 	}
 
-	public Message(int id, String text, User u) {
+	public Message(int id, String text, User ur) {
 		super();
 		this.id = id;
 		this.text = text;
-		this.u = u;
+		this.ur = ur;
 		this.hora = String.valueOf(calendario.get(Calendar.HOUR_OF_DAY) + ":" + calendario.get(Calendar.MINUTE));
 
 	}
@@ -44,11 +46,11 @@ public class Message implements Serializable {
 	}
 
 	public User getU() {
-		return u;
+		return ur;
 	}
 
-	public void setU(User u) {
-		this.u = u;
+	public void setU(User ur) {
+		this.ur = ur;
 	}
 
 	public Message() {
