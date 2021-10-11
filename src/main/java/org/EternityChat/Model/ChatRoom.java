@@ -99,6 +99,10 @@ public class ChatRoom implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	public void deleteUser(int id) {
+		this.ul.remove(id);
+	}
 
 	@Override
 	public String toString() {
