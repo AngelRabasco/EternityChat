@@ -19,15 +19,15 @@
             <Font name="Consolas" size="12.0" />
          </font></Label>
       <ListView layoutY="24.0" prefHeight="696.0" prefWidth="240.0" style="-fx-background-color: #161616;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1000.0" AnchorPane.topAnchor="25.0" />
-      <TableView layoutX="236.0" prefHeight="669.0" prefWidth="1001.0" style="-fx-background-color: #1c1c1c; -fx-text-fill: #aaaaaa;" AnchorPane.bottomAnchor="51.0" AnchorPane.leftAnchor="237.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <TableView fx:id="chat" layoutX="236.0" prefHeight="669.0" prefWidth="1001.0" style="-fx-background-color: #1c1c1c; -fx-text-fill: #aaaaaa;" AnchorPane.bottomAnchor="51.0" AnchorPane.leftAnchor="237.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columns>
-          <TableColumn prefWidth="130.0" resizable="false" sortable="false" text="Usuario" />
-          <TableColumn minWidth="0.0" prefWidth="870.0" resizable="false" sortable="false" text="Mensaje" />
+          <TableColumn fx:id="userColumn" prefWidth="130.0" resizable="false" sortable="false" text="Usuario" />
+          <TableColumn fx:id="textColumn" minWidth="0.0" prefWidth="870.0" resizable="false" sortable="false" text="Mensaje" />
         </columns>
       </TableView>
       <HBox layoutX="225.0" layoutY="644.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #17181a;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="237.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="669.0">
          <children>
-            <TextField prefHeight="52.0" prefWidth="951.0" promptText="Send message..." style="-fx-background-color: #17181a; -fx-text-fill: #aaaaaa;" />
+            <TextField fx:id="chatField" onKeyPressed="#pressEnter" prefHeight="52.0" prefWidth="951.0" promptText="Send message..." style="-fx-background-color: #17181a; -fx-text-fill: #aaaaaa;" />
             <ImageView fitHeight="71.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Imagenes/paper-planes-3128885_960_720.png" />
