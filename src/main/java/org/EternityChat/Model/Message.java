@@ -23,6 +23,7 @@ public class Message implements Serializable {
 	@XmlAttribute(name = "id")
 	private int id;
 	private String text;
+	@XmlElement (name = "Usuario")
 	private User ur = new User();
 	@XmlTransient
 	private Calendar calendario = Calendar.getInstance();

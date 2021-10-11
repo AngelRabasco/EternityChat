@@ -7,6 +7,7 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name="Usuarios")
@@ -14,6 +15,7 @@ public class User implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@XmlAttribute(name = "id")
 	private Integer id;
+	@XmlElement(name = "nickname")
 	private String nickname;
 	
 	public User() {

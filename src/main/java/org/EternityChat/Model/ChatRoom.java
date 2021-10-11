@@ -28,6 +28,9 @@ public class ChatRoom implements Serializable {
 	private List<Message> ml = new ArrayList<>();
 	@XmlElement(name = "ConnectedUsers")
 	private List<User> ul = new ArrayList<>();
+	@XmlElement(name = "ChatRoom")
+	private List<ChatRoom> cr = new ArrayList<>();
+
 
 	
 

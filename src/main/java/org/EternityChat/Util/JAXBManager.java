@@ -17,6 +17,7 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
+
 import org.EternityChat.Model.ChatRoom;
 import org.EternityChat.Model.ChatRoomsList;
 import org.EternityChat.Model.Message;
@@ -58,12 +59,12 @@ public class JAXBManager {
 		ml.add(m2);
 		ul.add(u);
 		ul.add(u2);
-
+	
 		ChatRoom c1 = new ChatRoom(1, "furbo", ml, ul);
 		c1.deleteUser(1);
 		cl.addChatRooms(c1);
-
-		ChatRoom c2 = new ChatRoom(2, "chill", ml, ul);
+		
+		ChatRoom c2 = new ChatRoom(2,"chill",ml,ul);
 		cl.addChatRooms(c2);
 		System.out.println(cl);
 
@@ -100,7 +101,7 @@ public class JAXBManager {
 			// jaxbMarshaller.marshal(_instance, System.out);
 
 			// Marshal the employees list in file
-
+			
 			cr = (ChatRoomsList) jaxUnmarshaller.unmarshal(new File(url));
 			return cr;
 		} catch (JAXBException e) {
@@ -109,5 +110,8 @@ public class JAXBManager {
 		}
 		return null;
 	}
+		
+	   }
+	
 
-}
+
