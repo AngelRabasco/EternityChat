@@ -38,6 +38,12 @@ public class ChatRoomsList implements Serializable {
 		return "ChatRoomsList [crl=" + crl + "]";
 	}
 	
+	public String getName(ChatRoom cr) {
+		String name = cr.getName();
+		return name;
+		
+	}
+	
 	
 }
 	

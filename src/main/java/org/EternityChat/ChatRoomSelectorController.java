@@ -1,9 +1,17 @@
 package org.EternityChat;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import javax.xml.bind.JAXBException;
 
 import org.EternityChat.Model.ChatRoom;
+import org.EternityChat.Model.ChatRoomsList;
 import org.EternityChat.Model.User;
+import org.EternityChat.Util.JAXBManager;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,9 +24,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class ChatRoomSelectorController {
-	private ObservableList<ChatRoom> obsList=FXCollections.observableArrayList();
-	private User user=new User();
 	
+	private User user=new User();
+	private String name="";
+	private List<ChatRoom> crl = new ArrayList<>();
 	@FXML
 	private ListView<ChatRoom> chatList;
 	
@@ -32,9 +41,13 @@ public class ChatRoomSelectorController {
 	}
 	
 	@FXML
-	public void loadChatRooms() {
-		obsList.add(new ChatRoom(0,"Dummy"));
-		chatList.setItems(obsList);
+	public void loadChatRooms() throws FileNotFoundException, JAXBException {
+	crl = JAXBManager.loadFile("C:\\Users\\usuario\\git\\EternityChat\\src\\main\\java\\data\\holu.xml").getCrl();
+	name = crl.get(1).getName();
+	for(int i = 0;i<crl.size();i++) {
+		chatList.getItems().add(crl.get(i));
+	}
+	
 	}
 	
 	@FXML
@@ -50,6 +63,7 @@ public class ChatRoomSelectorController {
 			stage.setResizable(false);
 			Stage currentStage=(Stage) chatList.getScene().getWindow();
 			currentStage.close();
+			
 			stage.show();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

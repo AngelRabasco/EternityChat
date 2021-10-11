@@ -42,14 +42,15 @@ public class JAXBManager {
 	 * }
 	 */
 
-	public static void saveFile(String url) {
+	public static void saveFile(String url,User us) {
 		ChatRoomsList cl = new ChatRoomsList();
 
 		List<Message> ml = new ArrayList<>();
 		int hora, minutos;
 		List<User> ul = new ArrayList<>();
+		ul.add(us);
 
-		User u = new User(1, "pakonii");
+		/*User u = new User(1, "pakonii");
 		User u2 = new User(2, "Angel");
 
 		Message m1 = new Message(1, "holu", u2);
@@ -58,7 +59,7 @@ public class JAXBManager {
 		Message m2 = new Message(2, "uwu", u);
 		ml.add(m2);
 		ul.add(u);
-		ul.add(u2);
+		ul.add(u2);*/
 	
 		ChatRoom c1 = new ChatRoom(1, "furbo", ml, ul);
 		c1.deleteUser(1);
@@ -87,6 +88,53 @@ public class JAXBManager {
 			e.printStackTrace();
 		}
 	}
+	public static void saveFile(String url) {
+		ChatRoomsList cl = new ChatRoomsList();
+
+		List<Message> ml = new ArrayList<>();
+		int hora, minutos;
+		List<User> ul = new ArrayList<>();
+	
+
+		/*User u = new User(1, "pakonii");
+		User u2 = new User(2, "Angel");
+
+		Message m1 = new Message(1, "holu", u2);
+
+		ml.add(m1);
+		Message m2 = new Message(2, "uwu", u);
+		ml.add(m2);
+		ul.add(u);
+		ul.add(u2);*/
+	
+		ChatRoom c1 = new ChatRoom(1, "furbo", ml, ul);
+	
+		cl.addChatRooms(c1);
+		
+		ChatRoom c2 = new ChatRoom(2,"chill",ml,ul);
+		cl.addChatRooms(c2);
+		System.out.println(cl);
+
+		JAXBContext jaxbContext;
+		try {
+			// jaxbContext = JAXBContext.newInstance(room.class);
+			jaxbContext = JAXBContext.newInstance(ChatRoomsList.class);
+			Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+
+			jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
+			// Marshal the list in console
+			// jaxbMarshaller.marshal(_instance, System.out);
+
+			// Marshal the employees list in file
+			jaxbMarshaller.marshal(cl, new File(url));
+
+		} catch (JAXBException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
 
 	public static ChatRoomsList loadFile(String url) throws JAXBException, FileNotFoundException {
 		JAXBContext jaxbContext;

@@ -49,8 +49,8 @@ public class App extends Application {
 	public static void main(String[] args) throws JAXBException, FileNotFoundException {
 		JAXBManager.saveFile("C:\\Users\\usuario\\git\\EternityChat\\src\\main\\java\\data\\holu.xml");
 		launch();
-		ChatRoomsList crl = new ChatRoomsList();
+		/*ChatRoomsList crl = new ChatRoomsList();
 		crl = (ChatRoomsList) JAXBManager.loadFile("C:\\Users\\usuario\\git\\EternityChat\\src\\main\\java\\data\\holu.xml");
-		System.out.println(crl);
+		System.out.println(crl);*/
 	}
 }

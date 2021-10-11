@@ -15,4 +15,6 @@ public class MainMenuController {
 	public void loadUser(User user) {
 		this.user=user;
 	}
+	
+	
 }
