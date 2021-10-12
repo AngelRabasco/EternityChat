@@ -84,7 +84,7 @@ public class Message implements Serializable {
 	}
 	
 	public void getAllDate() {
-		System.out.println(String.valueOf(calendario.get(Calendar.YEAR)+ "/" +calendario.get(Calendar.DATE)+":"+ calendario.get(Calendar.HOUR_OF_DAY) + ":" + calendario.get(Calendar.MINUTE)));
+		System.out.println(String.valueOf(calendario.get(Calendar.YEAR)+ "/" +calendario.get(Calendar.MONTH)+"/"+calendario.get(Calendar.DATE)+"/"+ calendario.get(Calendar.HOUR_OF_DAY) + ":" + calendario.get(Calendar.MINUTE)));
 	}
 
 	@Override
