@@ -1,5 +1,7 @@
 package org.EternityChat;
 
+import java.time.LocalDateTime;
+
 import org.EternityChat.Model.Message;
 import org.EternityChat.Model.User;
 import javafx.fxml.FXML;
@@ -21,6 +23,8 @@ public class MainMenuController {
 	@FXML
 	private TableColumn<Message ,String> textColumn;
 	@FXML
+	private TableColumn<Message, String> timeColumn;
+	@FXML
 	private TextField chatField;
 	@FXML
 	private ImageView sendButton;
@@ -28,6 +32,7 @@ public class MainMenuController {
 	public void initialize() {
 		userColumn.setCellValueFactory(new PropertyValueFactory<Message, User>("ur"));
 		textColumn.setCellValueFactory(new PropertyValueFactory<Message, String>("text"));
+		timeColumn.setCellValueFactory(new PropertyValueFactory<Message, String>("hora"));
 	}
 	public void shutdown() {
 		System.out.println("Se cierra");
@@ -45,7 +50,7 @@ public class MainMenuController {
 	}
 	public void sendMessage(String message) {
 		if(!message.equals("")) {
-			chat.getItems().add(new Message(message, user));
+			chat.getItems().add(new Message(message, user, LocalDateTime.now()));
 			chatField.setText(null);
 		}
 	}

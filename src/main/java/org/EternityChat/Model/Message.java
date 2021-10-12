@@ -1,11 +1,7 @@
 package org.EternityChat.Model;
 
-import java.util.Date;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
-
+import java.time.LocalDateTime;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -26,51 +22,46 @@ public class Message implements Serializable {
 	@XmlElement (name = "Usuario")
 	private User ur = new User();
 	@XmlTransient
-	private Calendar calendario = Calendar.getInstance();
-	@XmlTransient
-	String date, hora, minutos, segundos;
-
+	private LocalDateTime hora;
+	
+	public Message() {
+		this(-1,"",new User(),LocalDateTime.MIN);
+	}
 	public Message(int id, String text) {
 		super();
 		this.id = id;
 		this.text = text;
 	}
-	public Message(int id, String text, User ur) {
+	public Message(int id, String text, User ur, LocalDateTime hora) {
 		super();
 		this.id = id;
 		this.text = text;
 		this.ur = ur;
-		this.hora = String.valueOf(calendario.get(Calendar.HOUR_OF_DAY) + ":" + calendario.get(Calendar.MINUTE));
+		this.hora = hora;
 	}
-	public Message(String text, User user) {
+	public Message(String text, User user, LocalDateTime hora) {
 		this.text=text;
 		this.ur=user;
+		this.hora=hora;
 	}
 
-	public String getHora() {
-		return String.valueOf(hora);
+	public LocalDateTime getHora() {
+		return this.hora;
 	}
-
-	public void setHora(String hora) {
+	public void setHora(LocalDateTime hora) {
 		this.hora = hora;
 	}
 
 	public User getUr() {
 		return ur;
 	}
-
 	public void setUr(User ur) {
 		this.ur = ur;
-	}
-
-	public Message() {
-		super();
 	}
 
 	public int getId() {
 		return id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -78,15 +69,10 @@ public class Message implements Serializable {
 	public String getText() {
 		return text;
 	}
-
 	public void setText(String text) {
 		this.text = text;
 	}
 	
-	public void getAllDate() {
-		System.out.println(String.valueOf(calendario.get(Calendar.YEAR)+ "/" +calendario.get(Calendar.MONTH)+"/"+calendario.get(Calendar.DATE)+"/"+ calendario.get(Calendar.HOUR_OF_DAY) + ":" + calendario.get(Calendar.MINUTE)));
-	}
-
 	@Override
 	public String toString() {
 		return "Message [id=" + id + ", text=" + text + "]";

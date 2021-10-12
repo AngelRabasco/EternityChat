@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ChatRoomsList>
+    <ChatRoom id="1">
+        <name>furbo</name>
+    </ChatRoom>
+    <ChatRoom id="2">
+        <name>chill</name>
+    </ChatRoom>
+</ChatRoomsList>
