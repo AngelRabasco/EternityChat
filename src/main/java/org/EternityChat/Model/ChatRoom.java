@@ -18,8 +18,8 @@ public class ChatRoom implements Serializable {
 	/**
 	 * 
 	 */
-	
-	//hacer 2 listas
+
+	// hacer 2 listas
 	private static final long serialVersionUID = 1L;
 	@XmlAttribute(name = "id")
 	private int id;
@@ -31,16 +31,13 @@ public class ChatRoom implements Serializable {
 	@XmlElement(name = "ChatRoom")
 	private List<ChatRoom> cr = new ArrayList<>();
 
-
-	
-
 	public ChatRoom(int id, String name, List<Message> ml, List<User> ul, List<ChatRoom> crl) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.ml = ml;
 		this.ul = ul;
-		
+
 	}
 
 	public ChatRoom() {
@@ -68,8 +65,6 @@ public class ChatRoom implements Serializable {
 		this.ml = ml;
 		this.ul = ul;
 	}
-
-	
 
 	public List<User> getUl() {
 		return ul;
@@ -102,20 +97,14 @@ public class ChatRoom implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	public void deleteUser(int id) {
 		this.ul.remove(id);
 	}
 
 	@Override
 	public String toString() {
-		return "ChatRoomList [id=" + id + ", name=" + name + ", ml=" + ml + ", ul=" + ul + "]";
+		return "ChatRoomList [id=" + id + ", name=" + name + "]";
 	}
-	
-
-
-	
-
-	
 
 }

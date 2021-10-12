@@ -32,6 +32,13 @@ public class ChatRoomsList implements Serializable {
 	public void addChatRooms(ChatRoom cr) {
 		this.crl.add(cr);
 	}
+	
+	public void deleteChatRooms(ChatRoom cr) {
+		this.crl.remove(cr);
+	}
+	public void setChatRooms(ChatRoom cr,int i) {
+		this.crl.set(i, cr);
+	}
 
 	@Override
 	public String toString() {

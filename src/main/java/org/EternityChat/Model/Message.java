@@ -28,7 +28,7 @@ public class Message implements Serializable {
 	@XmlTransient
 	private Calendar calendario = Calendar.getInstance();
 	@XmlTransient
-	String hora, minutos, segundos;
+	String date, hora, minutos, segundos;
 
 	public Message(int id, String text) {
 		super();
@@ -81,6 +81,10 @@ public class Message implements Serializable {
 
 	public void setText(String text) {
 		this.text = text;
+	}
+	
+	public void getAllDate() {
+		System.out.println(String.valueOf(calendario.get(Calendar.YEAR)+ "/" +calendario.get(Calendar.DATE)+":"+ calendario.get(Calendar.HOUR_OF_DAY) + ":" + calendario.get(Calendar.MINUTE)));
 	}
 
 	@Override

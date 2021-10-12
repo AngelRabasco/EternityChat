@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.xml.bind.JAXB;
 import javax.xml.bind.JAXBException;
 
 import org.EternityChat.Model.ChatRoom;
@@ -27,7 +28,8 @@ public class ChatRoomSelectorController {
 	
 	private User user=new User();
 	private String name="";
-	private List<ChatRoom> crl = new ArrayList<>();
+	private List<ChatRoom> cr = new ArrayList<>();
+	private ChatRoomsList crl;
 	@FXML
 	private ListView<ChatRoom> chatList;
 	
@@ -42,21 +44,28 @@ public class ChatRoomSelectorController {
 	
 	@FXML
 	public void loadChatRooms() throws FileNotFoundException, JAXBException {
-	crl = JAXBManager.loadFile("data.xml").getCrl();
-	name = crl.get(1).getName();
-	for(int i = 0;i<crl.size();i++) {
-		chatList.getItems().add(crl.get(i));
+	cr = JAXBManager.loadFile("data.xml").getCrl();
+	name = cr.get(1).getName();
+	for(int i = 0;i<cr.size();i++) {
+		chatList.getItems().add(cr.get(i));
 	}
 	
 	}
 	
 	@FXML
-	public void loadMainMenu() {
+	public void loadMainMenu() throws JAXBException {
 		try {
+			List<User> ul = new ArrayList<>();
 			FXMLLoader loader=new FXMLLoader(getClass().getResource("MainMenu.fxml"));
 			Parent parent=loader.load();
 			MainMenuController mainMenuController=loader.getController();
 			mainMenuController.loadUser(user);
+			ul.add(user);
+			crl = (ChatRoomsList) JAXBManager.loadFile("data.xml\\");
+			JAXBManager.saveFile("data.xml\\", cr.get(1), ul);
+			System.out.println(crl);
+			
+			
 			Stage stage=new Stage();
 			stage.setScene(new Scene(parent));
 			stage.setTitle(chatList.getSelectionModel().getSelectedItem().getName());
