@@ -42,7 +42,7 @@ public class ChatRoomSelectorController {
 	
 	@FXML
 	public void loadChatRooms() throws FileNotFoundException, JAXBException {
-	crl = JAXBManager.loadFile("C:\\Users\\usuario\\git\\EternityChat\\src\\main\\java\\data\\holu.xml").getCrl();
+	crl = JAXBManager.loadFile("data.xml").getCrl();
 	name = crl.get(1).getName();
 	for(int i = 0;i<crl.size();i++) {
 		chatList.getItems().add(crl.get(i));

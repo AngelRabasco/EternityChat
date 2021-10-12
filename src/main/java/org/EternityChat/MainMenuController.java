@@ -7,6 +7,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
@@ -21,6 +22,8 @@ public class MainMenuController {
 	private TableColumn<Message ,String> textColumn;
 	@FXML
 	private TextField chatField;
+	@FXML
+	private ImageView sendButton;
 	
 	public void initialize() {
 		userColumn.setCellValueFactory(new PropertyValueFactory<Message, User>("ur"));
@@ -36,8 +39,15 @@ public class MainMenuController {
 			sendMessage(chatField.getText());
 		}
 	}
+	@FXML
+	public void pressSend() {
+		sendMessage(chatField.getText());
+	}
 	public void sendMessage(String message) {
-		chat.getItems().add(new Message(message, user));
+		if(!message.equals("")) {
+			chat.getItems().add(new Message(message, user));
+			chatField.setText(null);
+		}
 	}
 	
 	public void loadUser(User user) {
