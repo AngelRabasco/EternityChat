@@ -11,9 +11,18 @@
         <ConnectedUsers id="-1">
             <nickname>num3</nickname>
         </ConnectedUsers>
+        <ConnectedUsers id="-1">
+            <nickname>asdsad</nickname>
+        </ConnectedUsers>
+        <ConnectedUsers id="-1">
+            <nickname>asda</nickname>
+        </ConnectedUsers>
     </ChatRoom>
     <ChatRoom id="2">
         <name>Chill</name>
+        <ConnectedUsers id="-1">
+            <nickname>adadas</nickname>
+        </ConnectedUsers>
     </ChatRoom>
     <AllUsers id="-1">
         <nickname>num2</nickname>

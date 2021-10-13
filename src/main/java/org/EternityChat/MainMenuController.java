@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 
 import javax.xml.bind.JAXBException;
 
+import org.EternityChat.Model.ChatRoom;
 import org.EternityChat.Model.ChatRoomsList;
 import org.EternityChat.Model.Message;
 import org.EternityChat.Model.User;
@@ -35,6 +36,7 @@ public class MainMenuController {
 	@FXML
 	private ImageView sendButton;
 	ChatRoomsList crl = new ChatRoomsList();
+	private ChatRoom currentChatRoom;
 
 	public void initialize() {
 		userColumn.setCellValueFactory(new PropertyValueFactory<Message, User>("ur"));
@@ -51,12 +53,12 @@ public class MainMenuController {
 
 			}
 			
-		for (int i = 0; i < crl.getcr().get(i)) {
-			
-		}
+//		for (int i = 0; i < crl.getcr().get(i)) {
+//			
+//		}
 
 		}
-
+		System.out.println(currentChatRoom);
 		JAXBManager.saveFile("data.xml", crl);
 		System.out.println("Se cierra");
 	}
@@ -84,7 +86,8 @@ public class MainMenuController {
 		this.user = user;
 	}
 
-	public void loadChat() {
+	public void loadChat(ChatRoom chatRoom) {
+		this.currentChatRoom=chatRoom;
 //		chat.setItems(obsList);
 	}
 }
