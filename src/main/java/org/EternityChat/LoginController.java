@@ -1,11 +1,16 @@
 package org.EternityChat;
 
 import javafx.scene.control.TextField;
+
+import org.EternityChat.Model.ChatRoomsList;
 import org.EternityChat.Model.User;
+import org.EternityChat.Util.JAXBManager;
+
 import javafx.scene.control.Button;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import java.io.IOException;
+import java.security.cert.CRL;
 
 import javax.xml.bind.JAXBException;
 
@@ -25,10 +30,15 @@ public class LoginController {
 	@FXML
 	private void loadMainMenu() throws JAXBException {
 		try {
+			ChatRoomsList crl = JAXBManager.loadFile("data.xml\\");
+			
 			FXMLLoader loader=new FXMLLoader(getClass().getResource("ChatRoomSelector.fxml"));
 			Parent parent=loader.load();
 			ChatRoomSelectorController chatroomSelectorController=loader.getController();
 			chatroomSelectorController.loadUser(new User(userField.getText()));
+			User us = new User(null,userField.getText());
+			
+			//if(us.getNickname()!=crl.getUl().get()..getNickname())
 			chatroomSelectorController.loadChatRooms();
 			
 			

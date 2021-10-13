@@ -52,12 +52,48 @@ public class JAXBManager {
 		cr1.setUl(ul);
  * */
 	
-	public static void saveFile(String url) throws FileNotFoundException, JAXBException {
-		ChatRoomsList crl = JAXBManager.loadFile("data.xml\\");
-		ChatRoom cr = new ChatRoom(3,"Betis");
-		crl.addChatRooms(cr);
+	public static void saveFile(String url,ChatRoomsList crl) throws FileNotFoundException, JAXBException {
+		
 		JAXBContext jaxbContext;
 		try {
+			// jaxbContext = JAXBContext.newInstance(room.class);
+			jaxbContext = JAXBContext.newInstance(ChatRoomsList.class);
+			Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+
+			jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
+			// Marshal the list in console
+			// jaxbMarshaller.marshal(_instance, System.out);
+
+			// Marshal the employees list in file
+			jaxbMarshaller.marshal(crl, new File(url));
+
+		} catch (JAXBException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+public static void saveFile(String url) throws FileNotFoundException, JAXBException {
+		
+		JAXBContext jaxbContext;
+		try {
+			ChatRoomsList crl = new ChatRoomsList();
+			List<User> ul = new ArrayList<User>();
+			ChatRoom cr1 = new ChatRoom(1, "furbo");
+			ChatRoom cr2 = new ChatRoom(2, "Chill");
+			List<ChatRoom> cr = new ArrayList<ChatRoom>();
+			crl.addChatRooms(cr1);
+			crl.addChatRooms(cr2);
+			
+			//User u1 = new User(1, "Pakonii");
+		
+			//ul.add(u1);
+			//ul.add(u2);
+			//crl.getUl().add(u2);
+			
+			cr1.setUl(ul);
 			// jaxbContext = JAXBContext.newInstance(room.class);
 			jaxbContext = JAXBContext.newInstance(ChatRoomsList.class);
 			Marshaller jaxbMarshaller = jaxbContext.createMarshaller();

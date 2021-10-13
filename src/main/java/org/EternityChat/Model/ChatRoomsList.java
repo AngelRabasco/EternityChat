@@ -42,7 +42,7 @@ public class ChatRoomsList implements Serializable {
 	}
 
 
-	public List<ChatRoom> getCrl() {
+	public List<ChatRoom> getcr() {
 		return cr;
 	}
 
@@ -58,7 +58,7 @@ public class ChatRoomsList implements Serializable {
 		this.cr.remove(cr);
 	}
 	public void setChatRooms(ChatRoom cr,int i) {
-		this.cr.set(i, cr);
+		this.cr.set(0, cr);
 	}
 
 	@Override

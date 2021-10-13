@@ -2,17 +2,23 @@
 <ChatRoomsList>
     <ChatRoom id="1">
         <name>furbo</name>
-        <ConnectedUsers id="1">
-            <nickname>Pakonii</nickname>
+        <ConnectedUsers id="-1">
+            <nickname>num2</nickname>
+        </ConnectedUsers>
+        <ConnectedUsers id="-1">
+            <nickname>num1</nickname>
+        </ConnectedUsers>
+        <ConnectedUsers id="-1">
+            <nickname>num3</nickname>
         </ConnectedUsers>
     </ChatRoom>
     <ChatRoom id="2">
         <name>Chill</name>
     </ChatRoom>
-    <ChatRoom id="3">
-        <name>Betis</name>
-    </ChatRoom>
-    <AllUsers id="1">
-        <nickname>Pakonii</nickname>
+    <AllUsers id="-1">
+        <nickname>num2</nickname>
+    </AllUsers>
+    <AllUsers id="-1">
+        <nickname>num1</nickname>
     </AllUsers>
 </ChatRoomsList>

@@ -12,7 +12,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "ChatRoomList")
+@XmlRootElement(name = "ChatRoom")
 
 public class ChatRoom implements Serializable {
 	/**
@@ -42,6 +42,16 @@ public class ChatRoom implements Serializable {
 
 	public ChatRoom() {
 
+	}
+
+	
+	
+	public List<ChatRoom> getCr() {
+		return cr;
+	}
+
+	public void setCr(List<ChatRoom> cr) {
+		this.cr = cr;
 	}
 
 	public ChatRoom(int id, String name) {
@@ -100,6 +110,9 @@ public class ChatRoom implements Serializable {
 
 	public void deleteUser(int id) {
 		this.ul.remove(id);
+	}
+	public void deleteUser(String nickname) {
+		this.ul.remove(nickname);
 	}
 
 	@Override
