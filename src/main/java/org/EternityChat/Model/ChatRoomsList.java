@@ -17,32 +17,53 @@ public class ChatRoomsList implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	@XmlElement(name="ChatRoom", type=ChatRoom.class)
-	private List<ChatRoom> crl = new ArrayList<>();
-	
+	private List<ChatRoom> cr = new ArrayList<>();
+	@XmlElement(name="AllUsers")
+	private List<User> ul = new ArrayList<>();
 	public ChatRoomsList(){}
+	
 
-	public List<ChatRoom> getCrl() {
-		return crl;
+	
+	public ChatRoomsList(List<ChatRoom> cr, List<User> ul) {
+		super();
+		this.cr = cr;
+		this.ul = ul;
 	}
 
-	public void setCrl(List<ChatRoom> crl) {
-		this.crl = crl;
+
+
+	public List<User> getUl() {
+		return ul;
+	}
+
+
+	public void setUl(List<User> ul) {
+		this.ul = ul;
+	}
+
+
+	public List<ChatRoom> getCrl() {
+		return cr;
+	}
+
+	public void setCrl(List<ChatRoom> cr) {
+		this.cr = cr;
 	}
 	
 	public void addChatRooms(ChatRoom cr) {
-		this.crl.add(cr);
+		this.cr.add(cr);
 	}
 	
 	public void deleteChatRooms(ChatRoom cr) {
-		this.crl.remove(cr);
+		this.cr.remove(cr);
 	}
 	public void setChatRooms(ChatRoom cr,int i) {
-		this.crl.set(i, cr);
+		this.cr.set(i, cr);
 	}
 
 	@Override
 	public String toString() {
-		return "ChatRoomsList [crl=" + crl + "]";
+		return "ChatRoomsList [cr=" + cr + "]";
 	}
 	
 	public String getName(ChatRoom cr) {

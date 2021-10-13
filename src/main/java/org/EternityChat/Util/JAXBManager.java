@@ -40,15 +40,22 @@ public class JAXBManager {
 	 * 
 	 * }
 	 */
+
+/*List<User> ul = new ArrayList<User>();
+		ChatRoom cr1 = new ChatRoom(1, "furbo");
+		ChatRoom cr2 = new ChatRoom(2, "Chill");
+		List<ChatRoom> cr = new ArrayList<ChatRoom>();
+		cr.add(cr1);
+		cr.add(cr2);
+		User u1 = new User(1, "Pakonii");
+		ul.add(u1);
+		cr1.setUl(ul);
+ * */
 	
-	public static void saveFile(String url, ChatRoom cr,List<User> ul) throws FileNotFoundException, JAXBException {
-		ChatRoomsList crl;
-		crl = (ChatRoomsList) JAXBManager.loadFile("data.xml\\");
-		cr.setUl(ul);
-		crl.deleteChatRooms(cr);
-		
-		
-		
+	public static void saveFile(String url) throws FileNotFoundException, JAXBException {
+		ChatRoomsList crl = JAXBManager.loadFile("data.xml\\");
+		ChatRoom cr = new ChatRoom(3,"Betis");
+		crl.addChatRooms(cr);
 		JAXBContext jaxbContext;
 		try {
 			// jaxbContext = JAXBContext.newInstance(room.class);
@@ -68,95 +75,6 @@ public class JAXBManager {
 			e.printStackTrace();
 		}
 	}
-		
-	
-
-	public static void saveFile(String url, List<User> ul) {
-		ChatRoomsList cl = new ChatRoomsList();
-
-		List<Message> ml = new ArrayList<>();
-		int hora, minutos;
-
-		/*
-		 * User u = new User(1, "pakonii"); User u2 = new User(2, "Angel");
-		 * 
-		 * Message m1 = new Message(1, "holu", u2);
-		 * 
-		 * ml.add(m1); Message m2 = new Message(2, "uwu", u); ml.add(m2); ul.add(u);
-		 * ul.add(u2);
-		 */
-
-		ChatRoom c1 = new ChatRoom(1, "furbo", ml);
-		c1.deleteUser(1);
-		cl.addChatRooms(c1);
-
-		ChatRoom c2 = new ChatRoom(2, "chill", ml);
-		cl.addChatRooms(c2);
-		System.out.println(cl);
-
-		JAXBContext jaxbContext;
-		try {
-			// jaxbContext = JAXBContext.newInstance(room.class);
-			jaxbContext = JAXBContext.newInstance(ChatRoomsList.class);
-			Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
-
-			jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-
-			// Marshal the list in console
-			// jaxbMarshaller.marshal(_instance, System.out);
-
-			// Marshal the employees list in file
-			jaxbMarshaller.marshal(cl, new File(url));
-
-		} catch (JAXBException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
-	public static void saveFile(String url) {
-		ChatRoomsList cl = new ChatRoomsList();
-
-		List<Message> ml = new ArrayList<>();
-		int hora, minutos;
-		List<User> ul = new ArrayList<>();
-
-		/*
-		 * User u = new User(1, "pakonii"); User u2 = new User(2, "Angel");
-		 * 
-		 * Message m1 = new Message(1, "holu", u2);
-		 * 
-		 * ml.add(m1); Message m2 = new Message(2, "uwu", u); ml.add(m2); ul.add(u);
-		 * ul.add(u2);
-		 */
-
-		ChatRoom c1 = new ChatRoom(1, "furbo", ml, ul);
-
-		cl.addChatRooms(c1);
-
-		ChatRoom c2 = new ChatRoom(2, "chill", ml, ul);
-		cl.addChatRooms(c2);
-		System.out.println(cl);
-
-		JAXBContext jaxbContext;
-		try {
-			// jaxbContext = JAXBContext.newInstance(room.class);
-			jaxbContext = JAXBContext.newInstance(ChatRoomsList.class);
-			Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
-
-			jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-
-			// Marshal the list in console
-			// jaxbMarshaller.marshal(_instance, System.out);
-
-			// Marshal the employees list in file
-			jaxbMarshaller.marshal(cl, new File(url));
-
-		} catch (JAXBException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 
 	public static ChatRoomsList loadFile(String url) throws JAXBException, FileNotFoundException {
 		JAXBContext jaxbContext;
@@ -165,15 +83,15 @@ public class JAXBManager {
 			jaxbContext = JAXBContext.newInstance(ChatRoomsList.class);
 			Unmarshaller jaxUnmarshaller = jaxbContext.createUnmarshaller();
 
-			ChatRoomsList cr = new ChatRoomsList();
+			ChatRoomsList crl = new ChatRoomsList();
 
 			// Marshal the list in console
 			// jaxbMarshaller.marshal(_instance, System.out);
 
 			// Marshal the employees list in file
 
-			cr = (ChatRoomsList) jaxUnmarshaller.unmarshal(new File(url));
-			return cr;
+			crl = (ChatRoomsList) jaxUnmarshaller.unmarshal(new File(url));
+			return crl;
 		} catch (JAXBException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

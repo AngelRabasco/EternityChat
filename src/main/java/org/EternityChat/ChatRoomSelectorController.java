@@ -61,9 +61,11 @@ public class ChatRoomSelectorController {
 			MainMenuController mainMenuController=loader.getController();
 			mainMenuController.loadUser(user);
 			ul.add(user);
+			cr.get(0).setUl(ul);
+		
 			crl = (ChatRoomsList) JAXBManager.loadFile("data.xml\\");
-			JAXBManager.saveFile("data.xml\\", cr.get(1), ul);
-			System.out.println(crl);
+			
+		
 			
 			
 			Stage stage=new Stage();

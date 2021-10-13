@@ -106,5 +106,9 @@ public class ChatRoom implements Serializable {
 	public String toString() {
 		return "ChatRoomList [id=" + id + ", name=" + name + "]";
 	}
+	
+	public String showAll() {
+		return "ChatRoomList [id=" + id + ", name=" + name +"Mensajes= " +ml+"Usuarios= "+ul;
+	}
 
 }
