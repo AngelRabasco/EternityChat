@@ -53,12 +53,12 @@ public class MainMenuController {
 
 			}
 			
-//		for (int i = 0; i < crl.getcr().get(i)) {
-//			
-//		}
+
 
 		}
+		
 		System.out.println(currentChatRoom);
+		
 		JAXBManager.saveFile("data.xml", crl);
 		System.out.println("Se cierra");
 	}

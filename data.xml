@@ -3,31 +3,16 @@
     <ChatRoom id="1">
         <name>furbo</name>
         <ConnectedUsers id="-1">
-            <nickname>num2</nickname>
+            <nickname>1</nickname>
         </ConnectedUsers>
         <ConnectedUsers id="-1">
-            <nickname>num1</nickname>
-        </ConnectedUsers>
-        <ConnectedUsers id="-1">
-            <nickname>num3</nickname>
-        </ConnectedUsers>
-        <ConnectedUsers id="-1">
-            <nickname>asdsad</nickname>
-        </ConnectedUsers>
-        <ConnectedUsers id="-1">
-            <nickname>asda</nickname>
+            <nickname>2</nickname>
         </ConnectedUsers>
     </ChatRoom>
     <ChatRoom id="2">
         <name>Chill</name>
-        <ConnectedUsers id="-1">
-            <nickname>adadas</nickname>
-        </ConnectedUsers>
     </ChatRoom>
     <AllUsers id="-1">
-        <nickname>num2</nickname>
-    </AllUsers>
-    <AllUsers id="-1">
-        <nickname>num1</nickname>
+        <nickname>1</nickname>
     </AllUsers>
 </ChatRoomsList>

@@ -79,6 +79,8 @@ public class ChatRoom implements Serializable {
 	public List<User> getUl() {
 		return ul;
 	}
+	
+	
 
 	public void setUl(List<User> ul) {
 		this.ul = ul;
