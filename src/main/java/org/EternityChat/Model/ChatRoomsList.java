@@ -61,6 +61,7 @@ public class ChatRoomsList implements Serializable {
 		this.cr.set(0, cr);
 	}
 
+
 	@Override
 	public String toString() {
 		return "ChatRoomsList [cr=" + cr + "]";

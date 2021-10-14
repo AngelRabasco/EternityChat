@@ -116,7 +116,8 @@ public class ChatRoom implements Serializable {
 	public void deleteUser(String nickname) {
 		this.ul.remove(nickname);
 	}
-
+	
+	
 	@Override
 	public String toString() {
 		return "ChatRoomList [id=" + id + ", name=" + name + "]";

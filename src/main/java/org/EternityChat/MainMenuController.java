@@ -48,17 +48,31 @@ public class MainMenuController {
 	}
 
 	public void shutdown() throws FileNotFoundException, JAXBException {
+		crl = JAXBManager.loadFile("data.xml");
 		for (int i = 0; i < crl.getUl().size(); i++) {
 			if (user.getNickname().equals(crl.getUl().get(i).getNickname())) {
+
 				crl.getUl().remove(i);
+
+				JAXBManager.saveFile("data.xml", crl);
 			}
 		}
-		for (int i = 0; i < currentChatRoom.getUl().size(); i++) {
-			if (currentChatRoom.getUl().get(i).getNickname().equals(user.getNickname())) {
-				currentChatRoom.getUl().remove(i);
+		for (int i = 0; i < crl.getcr().size(); i++) {
+			if (crl.getcr().get(i).getName().equals(currentChatRoom.getName())) {
+				for (int b = 0; b < crl.getcr().get(i).getUl().size(); b++) {
+					if (crl.getcr().get(i).getUl().get(b).getNickname()
+							.equals(currentChatRoom.getUl().get(b).getNickname())) {
+						if (user.getNickname().equals(currentChatRoom.getUl().get(b).getNickname())) {
+							crl.getcr().get(i).getUl().remove(b);
+							JAXBManager.saveFile("data.xml", crl);
+							
+						}
+					}
+				}
 			}
+
 		}
-		JAXBManager.saveFile("data.xml", crl);
+
 		System.out.println("Se cierra");
 	}
 
@@ -81,51 +95,53 @@ public class MainMenuController {
 	public void sendMessage(String message) throws FileNotFoundException, JAXBException {
 		if (!message.equals("")) {
 			Message ms = new Message(message, user, LocalDateTime.now());
-			crl=JAXBManager.loadFile("data.xml");
+			crl = JAXBManager.loadFile("data.xml");
 			chat.getItems().clear();
-			for(int i=0; i<crl.getcr().get(currentChatRoom.getId()-1).getMl().size(); i++) {
+			for (int i = 0; i < crl.getcr().get(currentChatRoom.getId() - 1).getMl().size(); i++) {
 				chat.getItems().add(crl.getcr().get(currentChatRoom.getId() - 1).getMl().get(i));
 			}
 			chat.getItems().add(ms);
-			crl.getcr().get(currentChatRoom.getId()-1).getMl().add(ms);
+			crl.getcr().get(currentChatRoom.getId() - 1).getMl().add(ms);
 			chatField.setText(null);
-			JAXBManager.saveFile("data.xml",crl);
+			JAXBManager.saveFile("data.xml", crl);
 		}
 	}
 
 	public void loadUser(User user) {
 		this.user = user;
 	}
+
 	public void loadChat(ChatRoom chatRoom) throws FileNotFoundException, JAXBException {
 		this.currentChatRoom = chatRoom;
 		for (int i = 0; i < crl.getcr().get(currentChatRoom.getId() - 1).getUl().size(); i++) {
 			userList.getItems().add(crl.getcr().get(currentChatRoom.getId() - 1).getUl().get(i));
 		}
-		for(int i=0; i<crl.getcr().get(currentChatRoom.getId()-1).getMl().size(); i++) {
+		for (int i = 0; i < crl.getcr().get(currentChatRoom.getId() - 1).getMl().size(); i++) {
 			chat.getItems().add(crl.getcr().get(currentChatRoom.getId() - 1).getMl().get(i));
 		}
 		JAXBManager.saveFile("data.xml");
 		updateChat();
 	}
+
 	public void updateChat() {
 		new Timer().schedule(new TimerTask() {
 			public void run() {
-				Platform.runLater(()->{
+				Platform.runLater(() -> {
 					try {
 						chat.getItems().clear();
 						userList.getItems().clear();
-						crl=JAXBManager.loadFile("data.xml");
+						crl = JAXBManager.loadFile("data.xml");
 						for (int i = 0; i < crl.getcr().get(currentChatRoom.getId() - 1).getUl().size(); i++) {
 							userList.getItems().add(crl.getcr().get(currentChatRoom.getId() - 1).getUl().get(i));
 						}
-						for(int i=0; i<crl.getcr().get(currentChatRoom.getId()-1).getMl().size(); i++) {
+						for (int i = 0; i < crl.getcr().get(currentChatRoom.getId() - 1).getMl().size(); i++) {
 							chat.getItems().add(crl.getcr().get(currentChatRoom.getId() - 1).getMl().get(i));
 						}
 					} catch (FileNotFoundException | JAXBException e) {
 						e.printStackTrace();
 					}
 				});
-				
+
 			}
 		}, 0, 5000);
 	}
