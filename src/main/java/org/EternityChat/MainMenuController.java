@@ -51,28 +51,29 @@ public class MainMenuController {
 		crl = JAXBManager.loadFile("data.xml");
 		for (int i = 0; i < crl.getUl().size(); i++) {
 			if (user.getNickname().equals(crl.getUl().get(i).getNickname())) {
-
 				crl.getUl().remove(i);
-
-				JAXBManager.saveFile("data.xml", crl);
 			}
 		}
-		for (int i = 0; i < crl.getcr().size(); i++) {
-			if (crl.getcr().get(i).getName().equals(currentChatRoom.getName())) {
-				for (int b = 0; b < crl.getcr().get(i).getUl().size(); b++) {
-					if (crl.getcr().get(i).getUl().get(b).getNickname()
-							.equals(currentChatRoom.getUl().get(b).getNickname())) {
-						if (user.getNickname().equals(currentChatRoom.getUl().get(b).getNickname())) {
-							crl.getcr().get(i).getUl().remove(b);
-							JAXBManager.saveFile("data.xml", crl);
-							
-						}
-					}
-				}
+		for(int i=0; i<crl.getcr().get(currentChatRoom.getId()-1).getUl().size();i++) {
+			if(user.getNickname().equals(crl.getcr().get(currentChatRoom.getId()-1).getUl().get(i).getNickname())) {
+				crl.getcr().get(currentChatRoom.getId()-1).getUl().remove(i);
 			}
-
 		}
-
+//		for (int i = 0; i < crl.getcr().size(); i++) {
+//			if (crl.getcr().get(i).getName().equals(currentChatRoom.getName())) {
+//				for (int b = 0; b < crl.getcr().get(i).getUl().size(); b++) {
+//					if (crl.getcr().get(i).getUl().get(b).getNickname()
+//							.equals(currentChatRoom.getUl().get(b).getNickname())) {
+//						if (user.getNickname().equals(currentChatRoom.getUl().get(b).getNickname())) {
+//							crl.getcr().get(i).getUl().remove(b);
+//							JAXBManager.saveFile("data.xml", crl);
+//							
+//						}
+//					}
+//				}					Por alguna razón Paco insiste en mantener esta aberración
+//			}
+//		}
+		JAXBManager.saveFile("data.xml", crl);
 		System.out.println("Se cierra");
 	}
 

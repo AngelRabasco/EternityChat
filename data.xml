@@ -2,6 +2,18 @@
 <ChatRoomsList>
     <ChatRoom id="1">
         <name>furbo</name>
+        <mensaje id="0">
+            <text>2312313123</text>
+            <Usuario id="-1">
+                <nickname>bvcbvxz</nickname>
+            </Usuario>
+        </mensaje>
+        <mensaje id="0">
+            <text>345443223</text>
+            <Usuario id="-1">
+                <nickname>asdada</nickname>
+            </Usuario>
+        </mensaje>
     </ChatRoom>
     <ChatRoom id="2">
         <name>Chill</name>
