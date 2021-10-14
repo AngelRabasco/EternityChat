@@ -2,18 +2,15 @@ package org.EternityChat;
 
 import java.io.FileNotFoundException;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-
+import java.util.Timer;
+import java.util.TimerTask;
 import javax.xml.bind.JAXBException;
-
 import org.EternityChat.Model.ChatRoom;
 import org.EternityChat.Model.ChatRoomsList;
 import org.EternityChat.Model.Message;
 import org.EternityChat.Model.User;
 import org.EternityChat.Util.JAXBManager;
-import org.EternityChat.Util.Recargar;
-
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
@@ -84,6 +81,11 @@ public class MainMenuController {
 	public void sendMessage(String message) throws FileNotFoundException, JAXBException {
 		if (!message.equals("")) {
 			Message ms = new Message(message, user, LocalDateTime.now());
+			crl=JAXBManager.loadFile("data.xml");
+			chat.getItems().clear();
+			for(int i=0; i<crl.getcr().get(currentChatRoom.getId()-1).getMl().size(); i++) {
+				chat.getItems().add(crl.getcr().get(currentChatRoom.getId() - 1).getMl().get(i));
+			}
 			chat.getItems().add(ms);
 			crl.getcr().get(currentChatRoom.getId()-1).getMl().add(ms);
 			chatField.setText(null);
@@ -94,11 +96,8 @@ public class MainMenuController {
 	public void loadUser(User user) {
 		this.user = user;
 	}
-
 	public void loadChat(ChatRoom chatRoom) throws FileNotFoundException, JAXBException {
-		Recargar.refresqueshion();
 		this.currentChatRoom = chatRoom;
-		
 		for (int i = 0; i < crl.getcr().get(currentChatRoom.getId() - 1).getUl().size(); i++) {
 			userList.getItems().add(crl.getcr().get(currentChatRoom.getId() - 1).getUl().get(i));
 		}
@@ -106,8 +105,28 @@ public class MainMenuController {
 			chat.getItems().add(crl.getcr().get(currentChatRoom.getId() - 1).getMl().get(i));
 		}
 		JAXBManager.saveFile("data.xml");
-		
-//		chat.setItems(obsList);
+		updateChat();
 	}
-	
+	public void updateChat() {
+		new Timer().schedule(new TimerTask() {
+			public void run() {
+				Platform.runLater(()->{
+					try {
+						chat.getItems().clear();
+						userList.getItems().clear();
+						crl=JAXBManager.loadFile("data.xml");
+						for (int i = 0; i < crl.getcr().get(currentChatRoom.getId() - 1).getUl().size(); i++) {
+							userList.getItems().add(crl.getcr().get(currentChatRoom.getId() - 1).getUl().get(i));
+						}
+						for(int i=0; i<crl.getcr().get(currentChatRoom.getId()-1).getMl().size(); i++) {
+							chat.getItems().add(crl.getcr().get(currentChatRoom.getId() - 1).getMl().get(i));
+						}
+					} catch (FileNotFoundException | JAXBException e) {
+						e.printStackTrace();
+					}
+				});
+				
+			}
+		}, 0, 5000);
+	}
 }

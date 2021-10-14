@@ -2,12 +2,12 @@
 <ChatRoomsList>
     <ChatRoom id="1">
         <name>furbo</name>
-        <mensaje id="0">
-            <text>hola</text>
-            <Usuario>
-                <nickname>lol</nickname>
-            </Usuario>
-        </mensaje>
+        <ConnectedUsers id="-1">
+            <nickname>dios</nickname>
+        </ConnectedUsers>
+        <ConnectedUsers id="-1">
+            <nickname>pipo</nickname>
+        </ConnectedUsers>
     </ChatRoom>
     <ChatRoom id="2">
         <name>Chill</name>
