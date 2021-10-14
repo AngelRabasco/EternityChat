@@ -16,14 +16,14 @@ import javafx.stage.Stage;
 import javafx.fxml.FXML;
 
 public class LoginController {
+	private ChatRoomsList crl;
+
 	@FXML
 	private TextField userField;
 	@FXML
 	private Button loginButton;
 
-	private ChatRoomsList crl;
-
-	@FXML
+	// carga el xml y lo almacena en la variable crl
 	public void initialize() {
 		try {
 			this.crl = JAXBManager.loadFile("data.xml");
@@ -38,6 +38,8 @@ public class LoginController {
 		this.crl = crl;
 	}
 
+	// comprueba que el usuario introducido no forma parte de ninguna sala y le
+	// permite o deniega acceso respectivamente
 	@FXML
 	private void userVerification() throws JAXBException {
 		Boolean canAccess = true;
@@ -61,6 +63,7 @@ public class LoginController {
 		}
 	}
 
+	// cambia de pantalla a ChatRoomSelector
 	private void loadMainMenu() throws JAXBException {
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("ChatRoomSelector.fxml"));

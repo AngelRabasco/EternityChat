@@ -22,8 +22,8 @@
       <TableView fx:id="chat" layoutX="236.0" prefHeight="669.0" prefWidth="1001.0" style="-fx-background-color: #1c1c1c; -fx-text-fill: #aaaaaa;" AnchorPane.bottomAnchor="51.0" AnchorPane.leftAnchor="237.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columns>
           <TableColumn fx:id="userColumn" prefWidth="130.0" resizable="false" sortable="false" text="Usuario" />
-          <TableColumn fx:id="textColumn" minWidth="0.0" prefWidth="709.0" resizable="false" sortable="false" text="Mensaje" />
-            <TableColumn fx:id="timeColumn" prefWidth="159.0" sortable="false" text="Hora" />
+          <TableColumn fx:id="textColumn" minWidth="0.0" prefWidth="735.0" resizable="false" sortable="false" text="Mensaje" />
+            <TableColumn fx:id="timeColumn" prefWidth="133.0" sortable="false" style="-fx-alignment: CENTER;" text="Hora" />
         </columns>
       </TableView>
       <HBox layoutX="225.0" layoutY="644.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #17181a;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="237.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="669.0">

@@ -48,6 +48,8 @@ public class MainMenuController {
 		timeColumn.setCellValueFactory(new PropertyValueFactory<Message, String>("hora"));
 	}
 
+	// se ejecuta al cerrar el chat para eliminar al usuario de la lisa de usuarios
+	// conectados
 	public void shutdown() throws FileNotFoundException, JAXBException {
 		crl = JAXBManager.loadFile("data.xml");
 		for (int i = 0; i < crl.getUl().size(); i++) {
@@ -55,33 +57,21 @@ public class MainMenuController {
 				crl.getUl().remove(i);
 			}
 		}
-		for(int i=0; i<crl.getcr().get(currentChatRoom.getId()-1).getUl().size();i++) {
-			if(user.getNickname().equals(crl.getcr().get(currentChatRoom.getId()-1).getUl().get(i).getNickname())) {
-				crl.getcr().get(currentChatRoom.getId()-1).getUl().remove(i);
+		for (int i = 0; i < crl.getcr().get(currentChatRoom.getId() - 1).getUl().size(); i++) {
+			if (user.getNickname().equals(crl.getcr().get(currentChatRoom.getId() - 1).getUl().get(i).getNickname())) {
+				crl.getcr().get(currentChatRoom.getId() - 1).getUl().remove(i);
 			}
 		}
-//		for (int i = 0; i < crl.getcr().size(); i++) {
-//			if (crl.getcr().get(i).getName().equals(currentChatRoom.getName())) {
-//				for (int b = 0; b < crl.getcr().get(i).getUl().size(); b++) {
-//					if (crl.getcr().get(i).getUl().get(b).getNickname()
-//							.equals(currentChatRoom.getUl().get(b).getNickname())) {
-//						if (user.getNickname().equals(currentChatRoom.getUl().get(b).getNickname())) {
-//							crl.getcr().get(i).getUl().remove(b);
-//							JAXBManager.saveFile("data.xml", crl);
-//							
-//						}
-//					}
-//				}					Por alguna razón Paco insiste en mantener esta aberración
-//			}
-//		}
 		JAXBManager.saveFile("data.xml", crl);
-		System.out.println("Se cierra");
 	}
 
+	// carga la ChatRoomList de la pantalla anterior al cargar esta
 	public void loadChatRoomList(ChatRoomsList crl) {
 		this.crl = crl;
 	}
 
+	// compruba la tecla pulsada al escribir y en caso de ser ENTER ejecuta la
+	// función sendMessage()
 	@FXML
 	public void pressEnter(KeyEvent keyEvent) throws FileNotFoundException, JAXBException {
 		if (keyEvent.getCode().equals(KeyCode.ENTER)) {
@@ -89,6 +79,7 @@ public class MainMenuController {
 		}
 	}
 
+	//se acciona al pulsar el botón de enviar
 	@FXML
 	public void pressSend() throws FileNotFoundException, JAXBException {
 		sendMessage(chatField.getText());
@@ -96,7 +87,7 @@ public class MainMenuController {
 
 	public void sendMessage(String message) throws FileNotFoundException, JAXBException {
 		if (!message.equals("")) {
-			LocalDateTime dateTime=LocalDateTime.now();
+			LocalDateTime dateTime = LocalDateTime.now();
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 			String formattedDateTime = dateTime.format(formatter);
 			Message ms = new Message(message, user, formattedDateTime);
@@ -107,7 +98,7 @@ public class MainMenuController {
 			}
 			chat.getItems().add(ms);
 			crl.getcr().get(currentChatRoom.getId() - 1).getMl().add(ms);
-			chatField.setText(null);
+			chatField.clear();
 			JAXBManager.saveFile("data.xml", crl);
 		}
 	}
