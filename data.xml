@@ -2,20 +2,26 @@
 <ChatRoomsList>
     <ChatRoom id="1">
         <name>furbo</name>
-        <ConnectedUsers id="-1">
-            <nickname>1</nickname>
-        </ConnectedUsers>
+        <mensaje id="0">
+            <text>A</text>
+            <Usuario id="-1">
+                <nickname>NUM1</nickname>
+            </Usuario>
+        </mensaje>
+        <mensaje id="0">
+            <text>B</text>
+            <Usuario>
+                <nickname>NUM2</nickname>
+            </Usuario>
+        </mensaje>
         <ConnectedUsers>
-            <nickname>Hemorroides</nickname>
+            <nickname>NUM2</nickname>
         </ConnectedUsers>
     </ChatRoom>
     <ChatRoom id="2">
         <name>Chill</name>
     </ChatRoom>
-    <AllUsers id="-1">
-        <nickname>1</nickname>
-    </AllUsers>
     <AllUsers>
-        <nickname>Hemorroides</nickname>
+        <nickname>NUM2</nickname>
     </AllUsers>
 </ChatRoomsList>

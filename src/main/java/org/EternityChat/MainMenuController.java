@@ -2,6 +2,8 @@ package org.EternityChat;
 
 import java.io.FileNotFoundException;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.xml.bind.JAXBException;
 
@@ -40,7 +42,7 @@ public class MainMenuController {
 	private TextField chatField;
 	@FXML
 	private ImageView sendButton;
-	
+
 	public void initialize() {
 		userColumn.setCellValueFactory(new PropertyValueFactory<Message, User>("ur"));
 		textColumn.setCellValueFactory(new PropertyValueFactory<Message, String>("text"));
@@ -53,46 +55,52 @@ public class MainMenuController {
 				crl.getUl().remove(i);
 			}
 		}
-		for(int i = 0; i<currentChatRoom.getUl().size(); i++) {
-			if(currentChatRoom.getUl().get(i).getNickname().equals(user.getNickname())) {
+		for (int i = 0; i < currentChatRoom.getUl().size(); i++) {
+			if (currentChatRoom.getUl().get(i).getNickname().equals(user.getNickname())) {
 				currentChatRoom.getUl().remove(i);
 			}
 		}
 		JAXBManager.saveFile("data.xml", crl);
 		System.out.println("Se cierra");
 	}
-	
+
 	public void loadChatRoomList(ChatRoomsList crl) {
-		this.crl=crl;
-	} 
+		this.crl = crl;
+	}
 
 	@FXML
-	public void pressEnter(KeyEvent keyEvent) {
+	public void pressEnter(KeyEvent keyEvent) throws FileNotFoundException, JAXBException {
 		if (keyEvent.getCode().equals(KeyCode.ENTER)) {
 			sendMessage(chatField.getText());
 		}
 	}
+
 	@FXML
-	public void pressSend() {
+	public void pressSend() throws FileNotFoundException, JAXBException {
 		sendMessage(chatField.getText());
 	}
-	public void sendMessage(String message) {
+
+	public void sendMessage(String message) throws FileNotFoundException, JAXBException {
 		if (!message.equals("")) {
-			chat.getItems().add(new Message(message, user, LocalDateTime.now()));
+			Message ms = new Message(message, user, LocalDateTime.now());
+			chat.getItems().add(ms);
+			crl.getcr().get(currentChatRoom.getId()-1).getMl().add(ms);
 			chatField.setText(null);
+			JAXBManager.saveFile("data.xml",crl);
 		}
 	}
 
 	public void loadUser(User user) {
 		this.user = user;
 	}
+
 	public void loadChat(ChatRoom chatRoom) {
-		this.currentChatRoom=chatRoom;
+		this.currentChatRoom = chatRoom;
 		System.out.println(crl.getUl().size());
-		for (int i=0; i<crl.getcr().get(currentChatRoom.getId()-1).getUl().size(); i++) {
-			userList.getItems().add(crl.getcr().get(currentChatRoom.getId()-1).getUl().get(i));
+		for (int i = 0; i < crl.getcr().get(currentChatRoom.getId() - 1).getUl().size(); i++) {
+			userList.getItems().add(crl.getcr().get(currentChatRoom.getId() - 1).getUl().get(i));
 		}
-		
+
 //		chat.setItems(obsList);
 	}
 }
