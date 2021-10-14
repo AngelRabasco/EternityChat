@@ -3,40 +3,14 @@
     <ChatRoom id="1">
         <name>Futbol</name>
         <mensaje id="0">
-            <text>buenas</text>
+            <text>perro</text>
             <Usuario id="-1">
-                <nickname>hola</nickname>
+                <nickname>pipo</nickname>
             </Usuario>
-            <hora>2021-10-14 20:33:54</hora>
+            <hora>2021-10-14 21:13:23</hora>
         </mensaje>
-        <mensaje id="0">
-            <text>chao</text>
-            <Usuario id="-1">
-                <nickname>adios</nickname>
-            </Usuario>
-            <hora>2021-10-14 20:33:58</hora>
-        </mensaje>
-        <mensaje id="0">
-            <text>a</text>
-            <Usuario id="-1">
-                <nickname>lmao</nickname>
-            </Usuario>
-            <hora>2021-10-14 20:44:39</hora>
-        </mensaje>
-        <ConnectedUsers id="-1">
-            <nickname>hola</nickname>
-        </ConnectedUsers>
-        <ConnectedUsers id="-1">
-            <nickname>adios</nickname>
-        </ConnectedUsers>
     </ChatRoom>
     <ChatRoom id="2">
         <name>Videojuegos</name>
     </ChatRoom>
-    <AllUsers id="-1">
-        <nickname>hola</nickname>
-    </AllUsers>
-    <AllUsers id="-1">
-        <nickname>adios</nickname>
-    </AllUsers>
 </ChatRoomsList>

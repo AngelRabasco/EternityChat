@@ -1,16 +1,13 @@
 package org.EternityChat;
 
 import javafx.scene.control.TextField;
-
 import org.EternityChat.Model.ChatRoomsList;
 import org.EternityChat.Model.User;
 import org.EternityChat.Util.JAXBManager;
-
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import javax.xml.bind.JAXBException;
@@ -42,11 +39,11 @@ public class LoginController {
 	}
 
 	@FXML
-	private void loadMainMenu() throws JAXBException {
-		User us = new User(null, null);
-		if(crl.getUl().size() == 0) {
-			cambiarVentana();
-		}
+	private void userVerification() throws JAXBException {
+		Boolean canAccess = true;
+		if (crl.getUl().size() == 0) {
+			loadMainMenu();
+		} else {
 			for (int i = 0; i < crl.getUl().size(); i++) {
 				if (userField.getText().equals(crl.getUl().get(i).getNickname())) {
 					userField.clear();
@@ -55,18 +52,16 @@ public class LoginController {
 					alert.setTitle("Cagaste");
 					alert.setContentText("El nickname de usuario ya existe");
 					alert.showAndWait();
-					i = 0;
-					
-				} else {
-					cambiarVentana();
-					
+					canAccess = false;
 				}
 			}
-
+			if (canAccess == true) {
+				loadMainMenu();
+			}
 		}
-	
-	
-	private void cambiarVentana() throws JAXBException {
+	}
+
+	private void loadMainMenu() throws JAXBException {
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("ChatRoomSelector.fxml"));
 			Parent parent = loader.load();
@@ -74,8 +69,6 @@ public class LoginController {
 			chatroomSelectorController.loadUser(new User(userField.getText()));
 			chatroomSelectorController.loadChatRoomList(crl);
 			chatroomSelectorController.loadChatRooms();
-
-			// if(us.getNickname()!=crl.getUl().get()..getNickname())
 			Stage stage = new Stage();
 			stage.setScene(new Scene(parent));
 			stage.setTitle("Seleccione un chat");
@@ -84,9 +77,7 @@ public class LoginController {
 			currentStage.close();
 			stage.show();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-
 }

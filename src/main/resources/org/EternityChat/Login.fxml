@@ -19,7 +19,7 @@
          <font>
             <Font name="Consolas" size="24.0" />
          </font></Text>
-      <JFXButton fx:id="loginButton" layoutX="306.0" layoutY="291.0" onAction="#loadMainMenu" style="-fx-background-color: #F39C12;" text="Acceder" textFill="WHITE" />
+      <JFXButton fx:id="loginButton" layoutX="306.0" layoutY="291.0" onAction="#userVerification" style="-fx-background-color: #F39C12;" text="Acceder" textFill="WHITE" />
       <TextField fx:id="userField" layoutX="261.0" layoutY="200.0" promptText="Nickname" />
    </children>
 </AnchorPane>
