@@ -14,14 +14,8 @@
                 <nickname>NUM2</nickname>
             </Usuario>
         </mensaje>
-        <ConnectedUsers>
-            <nickname>NUM2</nickname>
-        </ConnectedUsers>
     </ChatRoom>
     <ChatRoom id="2">
         <name>Chill</name>
     </ChatRoom>
-    <AllUsers>
-        <nickname>NUM2</nickname>
-    </AllUsers>
 </ChatRoomsList>
