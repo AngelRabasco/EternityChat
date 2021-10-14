@@ -3,19 +3,54 @@
     <ChatRoom id="1">
         <name>furbo</name>
         <mensaje id="0">
-            <text>2312313123</text>
+            <text>lmao</text>
             <Usuario id="-1">
-                <nickname>bvcbvxz</nickname>
+                <nickname>equisde</nickname>
             </Usuario>
+            <hora></hora>
         </mensaje>
         <mensaje id="0">
-            <text>345443223</text>
+            <text>uoooo</text>
             <Usuario id="-1">
-                <nickname>asdada</nickname>
+                <nickname>aaaaaa</nickname>
             </Usuario>
+            <hora>2021-10-14 19:44</hora>
         </mensaje>
+        <mensaje id="0">
+            <text>uwu</text>
+            <Usuario id="-1">
+                <nickname>ieeeee</nickname>
+            </Usuario>
+            <hora>2021-10-14 19:44</hora>
+        </mensaje>
+        <mensaje id="0">
+            <text>jaja</text>
+            <Usuario id="-1">
+                <nickname>tetitas</nickname>
+            </Usuario>
+            <hora>2021-10-14 19:44:48</hora>
+        </mensaje>
+        <mensaje id="0">
+            <text>ajaja</text>
+            <Usuario id="-1">
+                <nickname>pezon</nickname>
+            </Usuario>
+            <hora>19:46:14 2021-10-14</hora>
+        </mensaje>
+        <ConnectedUsers id="-1">
+            <nickname>equisde</nickname>
+        </ConnectedUsers>
+        <ConnectedUsers id="-1">
+            <nickname>ieeeee</nickname>
+        </ConnectedUsers>
     </ChatRoom>
     <ChatRoom id="2">
         <name>Chill</name>
     </ChatRoom>
+    <AllUsers id="-1">
+        <nickname>equisde</nickname>
+    </AllUsers>
+    <AllUsers id="-1">
+        <nickname>ieeeee</nickname>
+    </AllUsers>
 </ChatRoomsList>

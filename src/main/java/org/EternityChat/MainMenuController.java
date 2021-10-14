@@ -2,6 +2,7 @@ package org.EternityChat;
 
 import java.io.FileNotFoundException;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Timer;
 import java.util.TimerTask;
 import javax.xml.bind.JAXBException;
@@ -95,7 +96,10 @@ public class MainMenuController {
 
 	public void sendMessage(String message) throws FileNotFoundException, JAXBException {
 		if (!message.equals("")) {
-			Message ms = new Message(message, user, LocalDateTime.now());
+			LocalDateTime dateTime=LocalDateTime.now();
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+			String formattedDateTime = dateTime.format(formatter);
+			Message ms = new Message(message, user, formattedDateTime);
 			crl = JAXBManager.loadFile("data.xml");
 			chat.getItems().clear();
 			for (int i = 0; i < crl.getcr().get(currentChatRoom.getId() - 1).getMl().size(); i++) {

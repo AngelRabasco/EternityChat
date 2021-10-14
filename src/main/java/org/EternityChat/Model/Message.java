@@ -21,34 +21,33 @@ public class Message implements Serializable {
 	private String text;
 	@XmlElement (name = "Usuario")
 	private User ur = new User();
-	@XmlTransient
-	private LocalDateTime hora;
+	private String hora;
 	
 	public Message() {
-		this(-1,"",new User(),LocalDateTime.MIN);
+		this(-1,"",new User(),"");
 	}
 	public Message(int id, String text) {
 		super();
 		this.id = id;
 		this.text = text;
 	}
-	public Message(int id, String text, User ur, LocalDateTime hora) {
+	public Message(int id, String text, User ur, String hora) {
 		super();
 		this.id = id;
 		this.text = text;
 		this.ur = ur;
 		this.hora = hora;
 	}
-	public Message(String text, User user, LocalDateTime hora) {
+	public Message(String text, User user, String hora) {
 		this.text=text;
 		this.ur=user;
 		this.hora=hora;
 	}
 
-	public LocalDateTime getHora() {
+	public String getHora() {
 		return this.hora;
 	}
-	public void setHora(LocalDateTime hora) {
+	public void setHora(String hora) {
 		this.hora = hora;
 	}
 
