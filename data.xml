@@ -2,41 +2,6 @@
 <ChatRoomsList>
     <ChatRoom id="1">
         <name>Futbol</name>
-        <mensaje id="0">
-            <text>perro</text>
-            <Usuario id="-1">
-                <nickname>pipo</nickname>
-            </Usuario>
-            <hora>2021-10-14 21:13:23</hora>
-        </mensaje>
-        <mensaje id="0">
-            <text>aaa</text>
-            <Usuario id="-1">
-                <nickname></nickname>
-            </Usuario>
-            <hora>2021-10-14 21:53:56</hora>
-        </mensaje>
-        <mensaje id="0">
-            <text>a</text>
-            <Usuario id="-1">
-                <nickname>sss</nickname>
-            </Usuario>
-            <hora>2021-10-14 22:10:06</hora>
-        </mensaje>
-        <mensaje id="0">
-            <text>caca</text>
-            <Usuario id="-1">
-                <nickname>sasas</nickname>
-            </Usuario>
-            <hora>2021-10-14 22:11:53</hora>
-        </mensaje>
-        <mensaje id="0">
-            <text>asasas</text>
-            <Usuario id="-1">
-                <nickname>asasasasasaa</nickname>
-            </Usuario>
-            <hora>2021-10-14 22:16:41</hora>
-        </mensaje>
     </ChatRoom>
     <ChatRoom id="2">
         <name>Videojuegos</name>

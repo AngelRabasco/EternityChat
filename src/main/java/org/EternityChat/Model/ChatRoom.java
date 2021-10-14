@@ -3,10 +3,8 @@ package org.EternityChat.Model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAnyAttribute;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -15,11 +13,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "ChatRoom")
 
 public class ChatRoom implements Serializable {
-	/**
-	 * 
-	 */
-
-	// hacer 2 listas
 	private static final long serialVersionUID = 1L;
 	@XmlAttribute(name = "id")
 	private int id;
@@ -44,8 +37,6 @@ public class ChatRoom implements Serializable {
 
 	}
 
-	
-	
 	public List<ChatRoom> getCr() {
 		return cr;
 	}
@@ -79,8 +70,6 @@ public class ChatRoom implements Serializable {
 	public List<User> getUl() {
 		return ul;
 	}
-	
-	
 
 	public void setUl(List<User> ul) {
 		this.ul = ul;
@@ -113,18 +102,17 @@ public class ChatRoom implements Serializable {
 	public void deleteUser(int id) {
 		this.ul.remove(id);
 	}
+
 	public void deleteUser(String nickname) {
 		this.ul.remove(nickname);
 	}
-	
-	
+
 	@Override
 	public String toString() {
 		return "ChatRoomList [id=" + id + ", name=" + name + "]";
 	}
-	
-	public String showAll() {
-		return "ChatRoomList [id=" + id + ", name=" + name +"Mensajes= " +ml+"Usuarios= "+ul;
-	}
 
+	public String showAll() {
+		return "ChatRoomList [id=" + id + ", name=" + name + "Mensajes= " + ml + "Usuarios= " + ul;
+	}
 }

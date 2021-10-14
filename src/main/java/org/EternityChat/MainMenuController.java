@@ -42,6 +42,7 @@ public class MainMenuController {
 	@FXML
 	private ImageView sendButton;
 
+	// asigna los valores de la Tebleview
 	public void initialize() {
 		userColumn.setCellValueFactory(new PropertyValueFactory<Message, User>("ur"));
 		textColumn.setCellValueFactory(new PropertyValueFactory<Message, String>("text"));
@@ -79,12 +80,14 @@ public class MainMenuController {
 		}
 	}
 
-	//se acciona al pulsar el botón de enviar
+	// se acciona al pulsar el botón de enviar ejecutando la función sendMessage()
 	@FXML
 	public void pressSend() throws FileNotFoundException, JAXBException {
 		sendMessage(chatField.getText());
 	}
 
+	// comprueba que el contenido de chatField es válido, crea el mensaje, actualiza
+	// el chat y envía el mensaje
 	public void sendMessage(String message) throws FileNotFoundException, JAXBException {
 		if (!message.equals("")) {
 			LocalDateTime dateTime = LocalDateTime.now();
@@ -103,10 +106,13 @@ public class MainMenuController {
 		}
 	}
 
+	// carga el usuario con el que se ha accedido
 	public void loadUser(User user) {
 		this.user = user;
 	}
 
+	// hace la primera carga del chat, de la lista de usuarios y después carga el
+	// hilo que los va actualizando pregresivamente
 	public void loadChat(ChatRoom chatRoom) throws FileNotFoundException, JAXBException {
 		this.currentChatRoom = chatRoom;
 		for (int i = 0; i < crl.getcr().get(currentChatRoom.getId() - 1).getUl().size(); i++) {
@@ -119,6 +125,7 @@ public class MainMenuController {
 		updateChat();
 	}
 
+	// cada 5 segundos refresca el chat y la lista de usuarios
 	public void updateChat() {
 		new Timer().schedule(new TimerTask() {
 			public void run() {

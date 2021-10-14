@@ -46,6 +46,7 @@ public class ChatRoomSelectorController {
 		}
 	}
 
+	// cambia de pantalla a MainMenu
 	@FXML
 	public void loadMainMenu() throws JAXBException {
 		try {
@@ -74,9 +75,7 @@ public class ChatRoomSelectorController {
 				}
 			});
 			stage.show();
-
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
