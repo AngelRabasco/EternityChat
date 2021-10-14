@@ -5,23 +5,11 @@
         <ConnectedUsers id="-1">
             <nickname>uwu</nickname>
         </ConnectedUsers>
-        <ConnectedUsers id="-1">
-            <nickname>uwu</nickname>
-        </ConnectedUsers>
-        <ConnectedUsers id="-1">
-            <nickname>asdas</nickname>
-        </ConnectedUsers>
-        <ConnectedUsers id="-1">
-            <nickname>dsaasda</nickname>
-        </ConnectedUsers>
-        <ConnectedUsers>
-            <nickname>asdsad</nickname>
-        </ConnectedUsers>
     </ChatRoom>
     <ChatRoom id="2">
         <name>Chill</name>
     </ChatRoom>
     <AllUsers id="-1">
-        <nickname>dsaasda</nickname>
+        <nickname>uwu</nickname>
     </AllUsers>
 </ChatRoomsList>

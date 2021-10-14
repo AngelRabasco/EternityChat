@@ -50,7 +50,11 @@ public class MainMenuController {
 				crl.getUl().remove(i);
 			}
 		}
-		System.out.println(currentChatRoom);
+		for(int i = 0; i<currentChatRoom.getUl().size(); i++) {
+			if(currentChatRoom.getUl().get(i).getNickname().equals(user.getNickname())) {
+				currentChatRoom.getUl().remove(i);
+			}
+		}
 		JAXBManager.saveFile("data.xml", crl);
 		System.out.println("Se cierra");
 	}

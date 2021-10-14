@@ -9,6 +9,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import javax.xml.bind.JAXBException;
 
+import org.EternityChat.Util.JAXBManager;
+
 /**
  * JavaFX App
  */
