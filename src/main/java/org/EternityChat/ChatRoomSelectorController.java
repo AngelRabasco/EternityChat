@@ -36,15 +36,17 @@ public class ChatRoomSelectorController {
 	@FXML
 	public void initialize() {
 	}
+	
+	public void loadChatRoomList(ChatRoomsList crl) {
+		this.crl=crl;
+	}
 
-	@FXML
 	public void loadUser(User user) {
 		this.user = user;
 	}
 
-	@FXML
 	public void loadChatRooms() throws FileNotFoundException, JAXBException {
-		cr = JAXBManager.loadFile("data.xml").getcr();
+		cr = crl.getcr();
 		name = cr.get(1).getName();
 		for (int i = 0; i < cr.size(); i++) {
 			chatList.getItems().add(cr.get(i));
@@ -55,15 +57,11 @@ public class ChatRoomSelectorController {
 	@FXML
 	public void loadMainMenu() throws JAXBException {
 		try {
-			ChatRoomsList crl = JAXBManager.loadFile("data.xml\\");
-			
-		
-			
-		
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("MainMenu.fxml"));
 			Parent parent = loader.load();
 			MainMenuController mainMenuController = loader.getController();
 			mainMenuController.loadUser(user);
+			mainMenuController.loadChatRoomList(crl);
 			mainMenuController.loadChat(chatList.getSelectionModel().getSelectedItem());
 			crl.getUl().add(user);
 			crl.getcr().get(chatList.getSelectionModel().getSelectedIndex()).getUl().add(user);

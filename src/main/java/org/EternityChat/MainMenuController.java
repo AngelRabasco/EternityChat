@@ -21,7 +21,9 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
 public class MainMenuController {
-	private User user = new User();
+	private User user;
+	private ChatRoomsList crl;
+	private ChatRoom currentChatRoom;
 
 	@FXML
 	private TableView<Message> chat;
@@ -35,9 +37,7 @@ public class MainMenuController {
 	private TextField chatField;
 	@FXML
 	private ImageView sendButton;
-	ChatRoomsList crl = new ChatRoomsList();
-	private ChatRoom currentChatRoom;
-
+	
 	public void initialize() {
 		userColumn.setCellValueFactory(new PropertyValueFactory<Message, User>("ur"));
 		textColumn.setCellValueFactory(new PropertyValueFactory<Message, String>("text"));
@@ -45,23 +45,19 @@ public class MainMenuController {
 	}
 
 	public void shutdown() throws FileNotFoundException, JAXBException {
-		crl = JAXBManager.loadFile("data.xml");
-
 		for (int i = 0; i < crl.getUl().size(); i++) {
 			if (user.getNickname().equals(crl.getUl().get(i).getNickname())) {
 				crl.getUl().remove(i);
-
 			}
-			
-
-
 		}
-		
 		System.out.println(currentChatRoom);
-		
 		JAXBManager.saveFile("data.xml", crl);
 		System.out.println("Se cierra");
 	}
+	
+	public void loadChatRoomList(ChatRoomsList crl) {
+		this.crl=crl;
+	} 
 
 	@FXML
 	public void pressEnter(KeyEvent keyEvent) {

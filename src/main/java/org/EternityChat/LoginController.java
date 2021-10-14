@@ -9,11 +9,10 @@ import org.EternityChat.Util.JAXBManager;
 import javafx.scene.control.Button;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+
+import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.security.cert.CRL;
-
 import javax.xml.bind.JAXBException;
-
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.fxml.FXML;
@@ -24,24 +23,34 @@ public class LoginController {
 	@FXML
 	private Button loginButton;
 	
+	private ChatRoomsList crl;
+	
 	@FXML
-	public void initialize() { }
+	public void initialize() {
+		try {
+			this.crl = JAXBManager.loadFile("data.xml");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (JAXBException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void loadChatRoomList(ChatRoomsList crl) {
+		this.crl=crl;
+	}
 	
 	@FXML
 	private void loadMainMenu() throws JAXBException {
 		try {
-			ChatRoomsList crl = JAXBManager.loadFile("data.xml\\");
-			
 			FXMLLoader loader=new FXMLLoader(getClass().getResource("ChatRoomSelector.fxml"));
 			Parent parent=loader.load();
 			ChatRoomSelectorController chatroomSelectorController=loader.getController();
 			chatroomSelectorController.loadUser(new User(userField.getText()));
-			User us = new User(null,userField.getText());
-			
-			//if(us.getNickname()!=crl.getUl().get()..getNickname())
+			chatroomSelectorController.loadChatRoomList(crl);
 			chatroomSelectorController.loadChatRooms();
-			
-			
+			User us = new User(null,userField.getText());
+			//if(us.getNickname()!=crl.getUl().get()..getNickname())
 			Stage stage=new Stage();
 			stage.setScene(new Scene(parent));
 			stage.setTitle("Seleccione un chat");
