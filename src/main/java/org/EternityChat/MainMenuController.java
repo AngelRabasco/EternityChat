@@ -12,6 +12,7 @@ import org.EternityChat.Model.User;
 import org.EternityChat.Util.JAXBManager;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -33,6 +34,8 @@ public class MainMenuController {
 	private TableColumn<Message, String> textColumn;
 	@FXML
 	private TableColumn<Message, String> timeColumn;
+	@FXML
+	private ListView<User> userList;
 	@FXML
 	private TextField chatField;
 	@FXML
@@ -69,12 +72,10 @@ public class MainMenuController {
 			sendMessage(chatField.getText());
 		}
 	}
-
 	@FXML
 	public void pressSend() {
 		sendMessage(chatField.getText());
 	}
-
 	public void sendMessage(String message) {
 		if (!message.equals("")) {
 			chat.getItems().add(new Message(message, user, LocalDateTime.now()));
@@ -85,9 +86,13 @@ public class MainMenuController {
 	public void loadUser(User user) {
 		this.user = user;
 	}
-
 	public void loadChat(ChatRoom chatRoom) {
 		this.currentChatRoom=chatRoom;
+		System.out.println(crl.getUl().size());
+		for (int i=0; i<crl.getcr().get(currentChatRoom.getId()-1).getUl().size(); i++) {
+			userList.getItems().add(crl.getcr().get(currentChatRoom.getId()-1).getUl().get(i));
+		}
+		
 //		chat.setItems(obsList);
 	}
 }
