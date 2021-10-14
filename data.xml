@@ -3,16 +3,13 @@
     <ChatRoom id="1">
         <name>furbo</name>
         <ConnectedUsers id="-1">
-            <nickname>1</nickname>
+            <nickname>uwu</nickname>
         </ConnectedUsers>
         <ConnectedUsers id="-1">
-            <nickname>2</nickname>
+            <nickname>uwu</nickname>
         </ConnectedUsers>
     </ChatRoom>
     <ChatRoom id="2">
         <name>Chill</name>
     </ChatRoom>
-    <AllUsers id="-1">
-        <nickname>1</nickname>
-    </AllUsers>
 </ChatRoomsList>

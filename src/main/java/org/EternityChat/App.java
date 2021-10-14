@@ -8,6 +8,8 @@ import javafx.stage.Stage;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import javax.xml.bind.JAXBException;
+
+import org.EternityChat.Model.ChatRoomsList;
 import org.EternityChat.Util.JAXBManager;
 
 /**
@@ -36,6 +38,7 @@ public class App extends Application {
 	
 	public static void main(String[] args) throws JAXBException, FileNotFoundException {
 		//JAXBManager.saveFile("data.xml\\");
+		ChatRoomsList crl = JAXBManager.loadFile("data.xml");
 		launch();
 		/*ChatRoomsList crl = new ChatRoomsList();
 		crl = (ChatRoomsList) JAXBManager.loadFile("C:\\Users\\usuario\\git\\EternityChat\\src\\main\\java\\data\\holu.xml");
