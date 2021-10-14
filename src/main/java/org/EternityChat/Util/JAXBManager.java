@@ -81,8 +81,8 @@ public static void saveFile(String url) throws FileNotFoundException, JAXBExcept
 		try {
 			ChatRoomsList crl = new ChatRoomsList();
 			List<User> ul = new ArrayList<User>();
-			ChatRoom cr1 = new ChatRoom(1, "furbo");
-			ChatRoom cr2 = new ChatRoom(2, "Chill");
+			ChatRoom cr1 = new ChatRoom(1, "Futbol");
+			ChatRoom cr2 = new ChatRoom(2, "Videojuegos");
 			List<ChatRoom> cr = new ArrayList<ChatRoom>();
 			crl.addChatRooms(cr1);
 			crl.addChatRooms(cr2);

@@ -6,6 +6,7 @@ import org.EternityChat.Model.ChatRoomsList;
 import org.EternityChat.Model.User;
 import org.EternityChat.Util.JAXBManager;
 
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -22,9 +23,9 @@ public class LoginController {
 	private TextField userField;
 	@FXML
 	private Button loginButton;
-	
+
 	private ChatRoomsList crl;
-	
+
 	@FXML
 	public void initialize() {
 		try {
@@ -35,33 +36,57 @@ public class LoginController {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void loadChatRoomList(ChatRoomsList crl) {
-		this.crl=crl;
+		this.crl = crl;
 	}
-	
+
 	@FXML
 	private void loadMainMenu() throws JAXBException {
+		User us = new User(null, null);
+		if(crl.getUl().size() == 0) {
+			cambiarVentana();
+		}
+			for (int i = 0; i < crl.getUl().size(); i++) {
+				if (userField.getText().equals(crl.getUl().get(i).getNickname())) {
+					userField.clear();
+					Alert alert = new Alert(Alert.AlertType.ERROR);
+					alert.setHeaderText(null);
+					alert.setTitle("Cagaste");
+					alert.setContentText("El nickname de usuario ya existe");
+					alert.showAndWait();
+					i = 0;
+					
+				} else {
+					cambiarVentana();
+					
+				}
+			}
+
+		}
+	
+	
+	private void cambiarVentana() throws JAXBException {
 		try {
-			FXMLLoader loader=new FXMLLoader(getClass().getResource("ChatRoomSelector.fxml"));
-			Parent parent=loader.load();
-			ChatRoomSelectorController chatroomSelectorController=loader.getController();
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("ChatRoomSelector.fxml"));
+			Parent parent = loader.load();
+			ChatRoomSelectorController chatroomSelectorController = loader.getController();
 			chatroomSelectorController.loadUser(new User(userField.getText()));
 			chatroomSelectorController.loadChatRoomList(crl);
 			chatroomSelectorController.loadChatRooms();
-			User us = new User(null,userField.getText());
-			//if(us.getNickname()!=crl.getUl().get()..getNickname())
-			Stage stage=new Stage();
+
+			// if(us.getNickname()!=crl.getUl().get()..getNickname())
+			Stage stage = new Stage();
 			stage.setScene(new Scene(parent));
 			stage.setTitle("Seleccione un chat");
 			stage.setResizable(false);
-			Stage currentStage=(Stage) loginButton.getScene().getWindow();
+			Stage currentStage = (Stage) loginButton.getScene().getWindow();
 			currentStage.close();
 			stage.show();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
+
 }

@@ -1,56 +1,42 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ChatRoomsList>
     <ChatRoom id="1">
-        <name>furbo</name>
+        <name>Futbol</name>
         <mensaje id="0">
-            <text>lmao</text>
+            <text>buenas</text>
             <Usuario id="-1">
-                <nickname>equisde</nickname>
+                <nickname>hola</nickname>
             </Usuario>
-            <hora></hora>
+            <hora>2021-10-14 20:33:54</hora>
         </mensaje>
         <mensaje id="0">
-            <text>uoooo</text>
+            <text>chao</text>
             <Usuario id="-1">
-                <nickname>aaaaaa</nickname>
+                <nickname>adios</nickname>
             </Usuario>
-            <hora>2021-10-14 19:44</hora>
+            <hora>2021-10-14 20:33:58</hora>
         </mensaje>
         <mensaje id="0">
-            <text>uwu</text>
+            <text>a</text>
             <Usuario id="-1">
-                <nickname>ieeeee</nickname>
+                <nickname>lmao</nickname>
             </Usuario>
-            <hora>2021-10-14 19:44</hora>
-        </mensaje>
-        <mensaje id="0">
-            <text>jaja</text>
-            <Usuario id="-1">
-                <nickname>tetitas</nickname>
-            </Usuario>
-            <hora>2021-10-14 19:44:48</hora>
-        </mensaje>
-        <mensaje id="0">
-            <text>ajaja</text>
-            <Usuario id="-1">
-                <nickname>pezon</nickname>
-            </Usuario>
-            <hora>19:46:14 2021-10-14</hora>
+            <hora>2021-10-14 20:44:39</hora>
         </mensaje>
         <ConnectedUsers id="-1">
-            <nickname>equisde</nickname>
+            <nickname>hola</nickname>
         </ConnectedUsers>
         <ConnectedUsers id="-1">
-            <nickname>ieeeee</nickname>
+            <nickname>adios</nickname>
         </ConnectedUsers>
     </ChatRoom>
     <ChatRoom id="2">
-        <name>Chill</name>
+        <name>Videojuegos</name>
     </ChatRoom>
     <AllUsers id="-1">
-        <nickname>equisde</nickname>
+        <nickname>hola</nickname>
     </AllUsers>
     <AllUsers id="-1">
-        <nickname>ieeeee</nickname>
+        <nickname>adios</nickname>
     </AllUsers>
 </ChatRoomsList>
