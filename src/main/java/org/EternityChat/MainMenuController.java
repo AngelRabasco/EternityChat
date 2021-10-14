@@ -12,6 +12,7 @@ import org.EternityChat.Model.ChatRoomsList;
 import org.EternityChat.Model.Message;
 import org.EternityChat.Model.User;
 import org.EternityChat.Util.JAXBManager;
+import org.EternityChat.Util.Recargar;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
@@ -94,15 +95,19 @@ public class MainMenuController {
 		this.user = user;
 	}
 
-	public void loadChat(ChatRoom chatRoom) {
+	public void loadChat(ChatRoom chatRoom) throws FileNotFoundException, JAXBException {
+		Recargar.refresqueshion();
 		this.currentChatRoom = chatRoom;
+		
 		for (int i = 0; i < crl.getcr().get(currentChatRoom.getId() - 1).getUl().size(); i++) {
 			userList.getItems().add(crl.getcr().get(currentChatRoom.getId() - 1).getUl().get(i));
 		}
 		for(int i=0; i<crl.getcr().get(currentChatRoom.getId()-1).getMl().size(); i++) {
 			chat.getItems().add(crl.getcr().get(currentChatRoom.getId() - 1).getMl().get(i));
 		}
+		JAXBManager.saveFile("data.xml");
 		
 //		chat.setItems(obsList);
 	}
+	
 }
