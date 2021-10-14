@@ -96,11 +96,13 @@ public class MainMenuController {
 
 	public void loadChat(ChatRoom chatRoom) {
 		this.currentChatRoom = chatRoom;
-		System.out.println(crl.getUl().size());
 		for (int i = 0; i < crl.getcr().get(currentChatRoom.getId() - 1).getUl().size(); i++) {
 			userList.getItems().add(crl.getcr().get(currentChatRoom.getId() - 1).getUl().get(i));
 		}
-
+		for(int i=0; i<crl.getcr().get(currentChatRoom.getId()-1).getMl().size(); i++) {
+			chat.getItems().add(crl.getcr().get(currentChatRoom.getId() - 1).getMl().get(i));
+		}
+		
 //		chat.setItems(obsList);
 	}
 }

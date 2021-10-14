@@ -10,8 +10,20 @@
         </mensaje>
         <mensaje id="0">
             <text>B</text>
-            <Usuario>
+            <Usuario id="-1">
                 <nickname>NUM2</nickname>
+            </Usuario>
+        </mensaje>
+        <mensaje id="0">
+            <text>uwu si papi</text>
+            <Usuario id="-1">
+                <nickname>uwichan</nickname>
+            </Usuario>
+        </mensaje>
+        <mensaje id="0">
+            <text>ojo</text>
+            <Usuario id="-1">
+                <nickname>69</nickname>
             </Usuario>
         </mensaje>
     </ChatRoom>
